@@ -6,25 +6,54 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { SpotifyProvider } from '../providers/spotify/spotify';
+import {HttpClientModule} from "@angular/common/http";
+import {ArtistAlbumsPage} from "../pages/artist-albums/artist-albums";
+import {AlbumDetailsPage} from "../pages/album-details/album-details";
+import {InAppBrowser} from "@ionic-native/in-app-browser";
+import {LoginFacePage} from "../pages/login-face/login-face";
+import {Facebook} from "@ionic-native/facebook";
+import {NativeStorage} from "@ionic-native/native-storage";
+import {IonicStorageModule} from "@ionic/storage";
+import {HTTP} from "@ionic-native/http";
+import {LyricsPage} from "../pages/lyrics/lyrics";
+import {ProgressPage} from "../pages/progress/progress";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ArtistAlbumsPage,
+    AlbumDetailsPage,
+    LoginFacePage,
+    LyricsPage,
+    ProgressPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpClientModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ArtistAlbumsPage,
+    AlbumDetailsPage,
+    LoginFacePage,
+    LyricsPage,
+    ProgressPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SpotifyProvider,
+    InAppBrowser,
+    Facebook,
+    NativeStorage,
+    HTTP
   ]
 })
 export class AppModule {}

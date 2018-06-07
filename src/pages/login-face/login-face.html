@@ -1,26 +1,39 @@
+<!--
+  Generated template for the LoginFacePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Spotify
-    </ion-title>
+
+  <ion-navbar color="dark">
+    <ion-title>LOG IN</ion-title>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  <ion-searchbar (ionInput)="search($event)"></ion-searchbar>
-  <div *ngIf="items?.length>0">
-    <ion-list *ngFor="let i of items">
-      <ion-item>
-        <h1>Artist:{{i.name}}</h1>
-        <ion-badge color="primary">Popularity:{{i.popularity}}</ion-badge>
-        <button ion-button color="secondary" (click)="searchAlbums(i.id,i.name)">Albums</button>
-      </ion-item>
-    </ion-list>
-  </div>
-  <button ion-button (click)="pushToLyrics()">Get Lyrics</button>
-  <button ion-button (click)="loginSpotify()">Login to Spotify</button>
-</ion-content>
+<ion-content class="content" text-center>
+  <ion-buttons>
+    <button ion-button  round (click)="pushToProgress()">
+      Get User Profile
+    </button>
+  </ion-buttons>
 
+
+  <ion-buttons>
+    <button ion-button  round (click)="getDevices()">
+      Get Devices
+    </button>
+  </ion-buttons>
+
+
+
+  <ion-buttons>
+    <button ion-button  round (click)="login()">
+      LOG IN
+    </button>
+  </ion-buttons>
+</ion-content>
 
 <ion-footer>
   <ion-toolbar>
