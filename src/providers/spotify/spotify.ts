@@ -1,7 +1,8 @@
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {InAppBrowser} from "@ionic-native/in-app-browser";
+import {InAppBrowserEvent} from "@ionic-native/in-app-browser";
 import {HTTP} from "@ionic-native/http";
+import {Platform} from "ionic-angular";
 
 
 /*
@@ -58,7 +59,7 @@ export class SpotifyProvider {
   private searchUrl:string = this.baseUrl+'/search?q='
   private albumsUrl:string = this.baseUrl+'/artists/'
   private albumUrl:string = this.baseUrl+'/albums/'
-  public authToken:string
+  public authToken:string = ''
   //private authToken:string =  'Bearer BQDNK0aAox0UVPijXmzUxJ2Bli2GsG3BFdCWZurDCAhRLOxz5KKTO92koLjWFPrrpPmnvH9bWGEdtRvixA5fclphOzZt4wQXhRS6mt2c_hbXenYxhsMzM79jFw5aB-UphhSdM3Ww3Mgit06SFKgo44MvguV6EkgMlrBaxeHKXEsP0q5XhUoPQzcD1txwCw8kT0-i38YyeyDNLprRyjMCK8Ibi406d5tS1O5TDjHBCOuAwHZb_vOoBCztYC4'
   //private requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.authToken)
 
@@ -66,20 +67,21 @@ export class SpotifyProvider {
 
 
 
-  constructor(public http: HttpClient, public iab:InAppBrowser, public HTTP:HTTP) {
+  constructor(public http: HttpClient,public HTTP:HTTP,private platform:Platform) {
     console.log('Hello SpotifyProvider Provider');
-    if (window.location.href.toString().includes('token')) {
-      let begin = window.location.href.toString().indexOf('=')
-      let end = window.location.href.toString().indexOf('token_type')
-      this.authToken = 'Bearer '+window.location.href.toString().slice(begin + 1, end - 1)
-      this.requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.authToken)
-      console.log('request',this.requestHeader)
-      console.log('token',this.authToken)
-      console.log('https://accounts.spotify.com/authorize?client_id=' + this.client_id + '&redirect_uri=' + this.redirect_uri + '&response_type=' + this.response_type + '&state=' + this.state, '_system')
-      console.log('https://accounts.spotify.com/authorize?client_id=' + this.client_id + '&redirect_uri=' + this.redirect_uri + '&response_type=' + this.response_type + '&state=' + this.state + '&scope='+this.scope)
-
-
+    if (this.platform.is('ios')){
+      
     }
+    else{
+      if (window.location.href.toString().includes('token')) {
+        let begin = window.location.href.toString().indexOf('=')
+        let end = window.location.href.toString().indexOf('token_type')
+        this.authToken = 'Bearer '+window.location.href.toString().slice(begin + 1, end - 1)
+        this.requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.authToken)
+        console.log('token',this.authToken)
+      }
+    }
+
     }
 
 
@@ -105,6 +107,25 @@ export class SpotifyProvider {
 
   }
 
+  loginSpotify(){
+    return new Promise((resolve,reject)=> {
+      let browserRef = window.open('https://accounts.spotify.com/authorize?client_id=' + this.client_id + '&redirect_uri=' + this.redirect_uri + '&response_type=' + this.response_type + '&state=' + this.state + '&scope=' + this.scope,"_blank","location=no,clearsessioncache=yes,clearcache=yes")
+      browserRef.addEventListener("loadstart", (event:InAppBrowserEvent) => {
+        let responseParameters = ((event.url))
+        if (event.url.includes('localhost:8100/#access')){
+          let begin = event.url.toString().indexOf('=')
+          let end = event.url.toString().indexOf('token_type')
+          this.authToken = 'Bearer '+event.url.toString().slice(begin + 1, end - 1)
+          this.requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.authToken)
+        }
+        resolve('Ok')
+      })
+      browserRef.addEventListener("exit",function(event){
+        reject("Canceled")
+      })
+    })
+
+  }
 
   refresh() {
     let headers = {'Content-Type': 'application/x-www-form-urlencoded'}

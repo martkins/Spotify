@@ -6,7 +6,6 @@ import {SpotifyProvider} from "../../providers/spotify/spotify";
 import {HttpHeaders,HttpClient, HttpParams} from "@angular/common/http";
 import {Platform} from "ionic-angular";
 import {ProgressPage} from "../progress/progress";
-import {LyricsPage} from "../lyrics/lyrics";
 
 /**
  * Generated class for the LoginFacePage page.
@@ -59,39 +58,25 @@ export class LoginFacePage {
 
   login(){
     if (this.platform.is('ios')){
-      this.spotifyProvider.refresh().then(
-        (res) => {
-          this.spotifyProvider.resp = res;
-          let temp = JSON.parse(this.spotifyProvider.resp.data)
-          let token = temp.access_token
-          this.spotifyProvider.authToken = 'Bearer ' + token
-          this.spotifyProvider.requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.spotifyProvider.authToken)
-          console.log(this.spotifyProvider.authToken)
-          console.log(this.spotifyProvider.requestHeader)
-          this.navCtrl.push(HomePage)
-        },err=>{
-          let erro = err;
-          console.log(JSON.stringify(err))
+      this.platform.ready().then(()=>{
+        this.spotifyProvider.loginSpotify().then(success=>{
+          alert('Accesso Effettuato')
+
+        },error=>{
+          alert(error)
         })
+      })
     }
     else {
       this.spotifyProvider.loginComputer()
     }
-    /*else {
-      return this.refresh().then(
-        (res) => {
-          this.spotifyProvider.resp = res;
-          this.spotifyProvider.authToken = 'Bearer ' + this.spotifyProvider.resp.access_token
-          this.spotifyProvider.requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.spotifyProvider.authToken)
-          console.log(this.spotifyProvider.authToken)
-          console.log(this.sp otifyProvider.requestHeader)
-          this.navCtrl.push(HomePage)
-        })
-    }*/
   }
   pushToProgress(){
     this.navCtrl.push(ProgressPage)
 
   }
+
+
+
 
 }
