@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {SpotifyProvider} from "../../providers/spotify/spotify";
-import {InAppBrowser, InAppBrowserOptions} from "@ionic-native/in-app-browser";
+import {InAppBrowser} from "@ionic-native/in-app-browser";
 
 /**
  * Generated class for the AlbumDetailsPage page.

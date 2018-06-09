@@ -83,13 +83,6 @@
     <engine name="ios" spec="4.5.4" />
     <engine name="browser" spec="5.0.3" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
-    <plugin name="cordova-spotify" spec="^0.5.6" />
-    <plugin name="cordova-spotify-oauth" spec="^0.1.10" />
-    <plugin name="cordova-plugin-facebook4" spec="^2.1.0">
-        <variable name="APP_ID" value="964975850294068" />
-        <variable name="APP_NAME" value="ProvaSpotify" />
-        <variable name="ANDROID_SDK_VERSION" value="4.+" />
-    </plugin>
     <plugin name="cordova-plugin-nativestorage" spec="^2.3.1" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />

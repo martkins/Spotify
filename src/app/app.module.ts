@@ -12,7 +12,6 @@ import {ArtistAlbumsPage} from "../pages/artist-albums/artist-albums";
 import {AlbumDetailsPage} from "../pages/album-details/album-details";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {LoginFacePage} from "../pages/login-face/login-face";
-import {Facebook} from "@ionic-native/facebook";
 import {NativeStorage} from "@ionic-native/native-storage";
 import {IonicStorageModule} from "@ionic/storage";
 import {HTTP} from "@ionic-native/http";
@@ -51,7 +50,6 @@ import {ProgressPage} from "../pages/progress/progress";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SpotifyProvider,
     InAppBrowser,
-    Facebook,
     NativeStorage,
     HTTP
   ]

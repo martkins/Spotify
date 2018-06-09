@@ -15,7 +15,7 @@
     <br>
 
     <div>
-      <ion-range min="0" max="{{spotifyProvider.duration}}" [(ngModel)]="spotifyProvider.progressMs">
+      <ion-range min="0" max="{{spotifyProvider.duration}}"[(ngModel)]="spotifyProvider.progressMs">
         <ion-label range-left>{{spotifyProvider.progressMs | date:'mm:ss'}}</ion-label>
         <ion-label range-right *ngIf="duration == -1">--:--</ion-label>
         <ion-label range-right *ngIf="duration != -1">{{spotifyProvider.duration | date:'mm:ss'}}</ion-label>
