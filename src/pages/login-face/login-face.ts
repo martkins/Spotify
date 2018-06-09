@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Facebook} from "@ionic-native/facebook";
 import {SpotifyProvider} from "../../providers/spotify/spotify";
 import {HttpClient} from "@angular/common/http";
 import {Platform} from "ionic-angular";
@@ -20,7 +19,6 @@ import {ProgressPage} from "../progress/progress";
 })
 export class LoginFacePage {
 
-  private res : any;
   icon = "play"
 
   constructor(private platform:Platform,public http:HttpClient,public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {

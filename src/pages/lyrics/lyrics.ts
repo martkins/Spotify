@@ -17,7 +17,6 @@ import {SpotifyProvider} from "../../providers/spotify/spotify";
 })
 export class LyricsPage {
 
-  position = 0;
   currentSong ='song';
   private res:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider, private platform:Platform) {
@@ -34,32 +33,22 @@ export class LyricsPage {
     this.spotifyProvider.getCurrentTrack().subscribe(
       data=>{
         this.res = data;
-        if (this.spotifyProvider.progressMs < this.position){
-          this.position = this.spotifyProvider.progressMs;
-          this.seekPosition(this.spotifyProvider.progressMs)
-        }
-        else if (this.spotifyProvider.progressMs > this.position){
-          this.position = this.spotifyProvider.progressMs;
-          this.seekPosition(this.spotifyProvider.progressMs)
+        this.spotifyProvider.image = this.res.item.album.images[0].url;
+        this.spotifyProvider.progressMs = this.res.progress_ms;
+        this.spotifyProvider.duration = this.res.item.duration_ms;
+        this.spotifyProvider.artistName = this.res.item.artists[0].name;
+        this.spotifyProvider.songName = this.res.item.name;
+        if (this.currentSong != this.spotifyProvider.songName) {
+          this.currentSong = this.spotifyProvider.songName;
+          console.log('Getting Lyrics');
+          this.getMusixMatchLyrics()
         }
         else{
-          this.spotifyProvider.image = this.res.item.album.images[0].url;
-          this.spotifyProvider.progressMs = this.res.progress_ms;
-          this.position = this.spotifyProvider.progressMs;
-          this.spotifyProvider.duration = this.res.item.duration_ms;
-          this.spotifyProvider.artistName = this.res.item.artists[0].name;
-          this.spotifyProvider.songName = this.res.item.name;
-          if (this.currentSong != this.spotifyProvider.songName) {
-            this.currentSong = this.spotifyProvider.songName;
-            console.log('Getting Lyrics');
-            this.getMusixMatchLyrics()
-          }
-          else{
-            this.currentSong = this.spotifyProvider.songName
-          }
-
-
+          this.currentSong = this.spotifyProvider.songName
         }
+
+
+
 
       },err=>{
         console.log(JSON.stringify(err))
@@ -154,13 +143,5 @@ export class LyricsPage {
     this.spotifyProvider.lyricsMusixMatch = lyric
   }
 
-  seekPosition(pos){
-    this.spotifyProvider.seekPositionTrack(pos).subscribe(
-      data=>{
-        console.log(JSON.stringify(data))
-      },err=>{
-        console.log(err)
-      }
-    )
-  }
+
 }

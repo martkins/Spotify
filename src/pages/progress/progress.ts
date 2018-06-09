@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {SpotifyProvider} from "../../providers/spotify/spotify";
-import {DatePipe} from "@angular/common";
 
 
 /**
@@ -19,7 +18,6 @@ import {DatePipe} from "@angular/common";
 export class ProgressPage {
 
 
-  image = 'https://s-media-cache-ak0.pinimg.com/originals/82/8d/9c/828d9ce86050123bd1ec659604fab945.jpg'
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
   }
 
@@ -27,5 +25,14 @@ export class ProgressPage {
     console.log('ionViewDidLoad ProgressPage');
   }
 
+  seekPosition(){
+    this.spotifyProvider.seekPositionTrack(this.spotifyProvider.progressMs).subscribe(
+      data=>{
+        console.log(JSON.stringify(data))
+      },err=>{
+        console.log(err)
+      }
+    )
+  }
 
 }
