@@ -17,6 +17,8 @@ import {IonicStorageModule} from "@ionic/storage";
 import {HTTP} from "@ionic-native/http";
 import {LyricsPage} from "../pages/lyrics/lyrics";
 import {ProgressPage} from "../pages/progress/progress";
+import {AddArtistPage} from "../pages/add-artist/add-artist";
+import {AddPlaylistPage} from "../pages/add-playlist/add-playlist";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {ProgressPage} from "../pages/progress/progress";
     AlbumDetailsPage,
     LoginFacePage,
     LyricsPage,
-    ProgressPage
+    ProgressPage,
+    AddArtistPage,
+    AddPlaylistPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,9 @@ import {ProgressPage} from "../pages/progress/progress";
     AlbumDetailsPage,
     LoginFacePage,
     LyricsPage,
-    ProgressPage
+    ProgressPage,
+    AddArtistPage,
+    AddPlaylistPage
   ],
   providers: [
     StatusBar,

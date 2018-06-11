@@ -51,23 +51,31 @@ export class SpotifyProvider {
 
     }
 
+/*
+  API for search
+*/
 
   searchArtists(name:string){
-    console.log('Token:',this.authToken);
     return this.http.get(this.searchUrl+name+'&type=artist',{
       headers:this.requestHeader
     })
   }
+
   searchAlbums(id:string){
     return this.http.get(this.albumsUrl+id+'/albums',{
       headers:this.requestHeader
     })
   }
+
   searchAlbum(id:string){
     return this.http.get(this.albumUrl+id,{
       headers:this.requestHeader
     })
   }
+
+/*
+  API for LOGIN
+*/
 
   loginComputer(){
     window.open('https://accounts.spotify.com/authorize?client_id=' + this.client_id + '&redirect_uri=' + this.redirect_uri + '&response_type=' + this.response_type + '&state=' + this.state + '&scope='+this.scope, '_system')
@@ -92,6 +100,11 @@ export class SpotifyProvider {
     })
 
   }
+
+
+/*
+  API for progress bar
+*/
 
   devices(){
     return this.http.get(this.baseUrl+'/me/player/devices',{
@@ -130,6 +143,7 @@ export class SpotifyProvider {
       }
     )
   }
+
   playOrPause(){
     this.devices().subscribe(
       data=>{
@@ -173,16 +187,19 @@ export class SpotifyProvider {
     }
 
   }
+
   playCurrent(){
     return this.http.put(this.baseUrl+'/me/player/play',null,{
       headers:this.requestHeader
     })
   }
+
   pauseCurrent(){
     return this.http.put(this.baseUrl+'/me/player/pause',null,{
       headers:this.requestHeader
     })
   }
+
   startDevice(deviceId){
     return this.http.put(this.baseUrl+'/me/player',{
       'device_ids':[deviceId],
@@ -191,17 +208,23 @@ export class SpotifyProvider {
       headers:this.requestHeader
     })
   }
+
   getCurrentTrack(){
     return this.http.get(this.baseUrl+'/me/player/currently-playing',{
       headers:this.requestHeader
     })
   }
+
   seekPositionTrack(position){
     return this.http.put(this.baseUrl+'/me/player/seek?position_ms='+position,null,{
       headers:this.requestHeader
     })
   }
 
+
+/*
+API for song's lyrics
+*/
   processSongNameAndArtistMusixMatch(){
     let artist = this.artistName.toLowerCase();
     let song = this.songName.toLowerCase();
@@ -215,7 +238,6 @@ export class SpotifyProvider {
   musixMatchRequest(){
     let [song,artist] = this.processSongNameAndArtistMusixMatch();
     let base_url = 'http://api.musixmatch.com/ws/1.1/';
-    //return this.http.get(base_url+'matcher.track.get?q_track=a&q_artist=jovanotti&f_has_lyrics=4&apikey=c073696ccf0369c7b39c5960d33743f8')
     return this.http.get(base_url+'matcher.track.get?q_track='+song+'&q_artist='+artist+'&f_has_lyrics=1&apikey=c073696ccf0369c7b39c5960d33743f8')
 
   }
@@ -233,4 +255,21 @@ export class SpotifyProvider {
   }
 
 
+
+  getCurrentUserPlaylist(){
+    return this.http.get(this.baseUrl+'/me/playlists',{
+      headers:this.requestHeader
+    })
+  }
+
+
+/*
+  API for artists
+*/
+
+  getArtistTopTracks(id){
+    return this.http.get(this.baseUrl+'/artists/'+id+'/top-tracks?country=IT',{
+      headers:this.requestHeader
+    })
+  }
 }
