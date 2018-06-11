@@ -25,6 +25,9 @@ export class SpotifyProvider {
   image:any;
   authToken:string = '';
   requestHeader:any;
+  userId = ''
+  playlistId = ''
+
 
   private baseUrl:string = "https://api.spotify.com/v1";
   private searchUrl:string = this.baseUrl+'/search?q=';
@@ -254,7 +257,25 @@ API for song's lyrics
     return this.HTTP.get(link,null,null)
   }
 
+/*
+  API for playlist
+*/
 
+  getUserProfile(){
+    return this.http.get(this.baseUrl+'/me',{
+      headers: this.requestHeader
+    })
+  }
+
+  createPlaylist(id, name, description, isPublic){
+    return this.http.post(this.baseUrl+'/users/'+id+'/playlists',{
+      name : name,
+      description : description,
+      public : isPublic
+    },{
+      headers: this.requestHeader
+    })
+  }
 
   getCurrentUserPlaylist(){
     return this.http.get(this.baseUrl+'/me/playlists',{
