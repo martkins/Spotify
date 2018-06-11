@@ -4,6 +4,7 @@ import { SpotifyProvider} from "../../providers/spotify/spotify";
 import {ArtistAlbumsPage} from "../artist-albums/artist-albums";
 import {LoginFacePage} from "../login-face/login-face";
 import {LyricsPage} from "../lyrics/lyrics";
+import {AddPlaylistPage} from "../add-playlist/add-playlist";
 
 @Component({
   selector: 'page-home',
@@ -13,7 +14,6 @@ import {LyricsPage} from "../lyrics/lyrics";
 export class HomePage {
   private resp:any;
   private items:any;
-  code:any;
   constructor(public navCtrl: NavController, public spotifyProvider:SpotifyProvider) {
 
   }
@@ -50,4 +50,10 @@ export class HomePage {
   pushToLyrics(){
     this.navCtrl.push(LyricsPage)
   }
+
+  pushToAddPlaylist(){
+    this.navCtrl.push(AddPlaylistPage)
+
+  }
 }
+
