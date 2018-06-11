@@ -56,7 +56,6 @@ export class SpotifyProvider {
 */
 
   searchArtists(name:string){
-    console.log('Token:',this.authToken);
     return this.http.get(this.searchUrl+name+'&type=artist',{
       headers:this.requestHeader
     })
@@ -258,7 +257,19 @@ API for song's lyrics
 
 
   getCurrentUserPlaylist(){
-    return this.http.get(this.baseUrl+'/me/playlists')
+    return this.http.get(this.baseUrl+'/me/playlists',{
+      headers:this.requestHeader
+    })
   }
 
+
+/*
+  API for artists
+*/
+
+  getArtistTopTracks(id){
+    return this.http.get(this.baseUrl+'/artists/'+id+'/top-tracks?country=IT',{
+      headers:this.requestHeader
+    })
+  }
 }

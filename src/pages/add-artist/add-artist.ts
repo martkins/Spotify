@@ -15,7 +15,7 @@ import {SpotifyProvider} from "../../providers/spotify/spotify";
   templateUrl: 'add-artist.html',
 })
 export class AddArtistPage {
-
+  id = '23TFHmajVfBtlRx5MXqgoz'
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
   }
 
@@ -23,4 +23,12 @@ export class AddArtistPage {
     console.log('ionViewDidLoad AddArtistPage');
   }
 
+
+  addTopTracks(){
+    this.spotifyProvider.getArtistTopTracks(this.id).subscribe(
+      data=>{
+        console.log(data)
+      }
+    )
+  }
 }
