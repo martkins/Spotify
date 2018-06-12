@@ -13,6 +13,42 @@
 </ion-header>
 
 
-<ion-content padding>
 
+<ion-content padding>
+  <div *ngIf="albums?.length>0">
+    <ion-list *ngFor="let a of albums">
+      <ion-card (click)="add(a.id)">
+        <img src="{{a.images[0].url}}"/>
+        <div class="card-title">{{a.name}}</div>
+        <div class="card-subtitle">{{a.artists[0].name}}</div>
+      </ion-card>
+    </ion-list>
+  </div>
 </ion-content>
+<!--<ion-content class="card-background-page">
+
+  <ion-card>
+    <img src="{{this.url}}"/>
+    <div class="card-title">São Paulo</div>
+    <div class="card-subtitle">41 Listings</div>
+  </ion-card>
+
+  <ion-card>
+    <img src="{{this.url}}"/>
+    <div class="card-title">Amsterdam</div>
+    <div class="card-subtitle">64 Listings</div>
+  </ion-card>
+
+  <ion-card>
+    <img src="{{this.url}}"/>
+    <div class="card-title">San Francisco</div>
+    <div class="card-subtitle">72 Listings</div>
+  </ion-card>
+
+  <ion-card>
+    <img src="{{this.url}}"/>
+    <div class="card-title">Madison</div>
+    <div class="card-subtitle">28 Listings</div>
+  </ion-card>
+
+</ion-content>-->

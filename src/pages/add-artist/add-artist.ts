@@ -122,7 +122,9 @@ export class AddArtistPage {
   }
 
   pushToAllAlbums(){
-    this.navCtrl.push(AlbumsPage)
+    this.navCtrl.push(AlbumsPage,{
+      id:this.id
+    })
   }
 
   pushToRelatedArtists(){
