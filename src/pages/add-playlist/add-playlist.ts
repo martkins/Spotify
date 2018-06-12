@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AddArtistPage} from "../add-artist/add-artist";
+import {SongPage} from "../song/song";
+import {PlaylistPage} from "../playlist/playlist";
+import {GenrePage} from "../genre/genre";
+
 import {SpotifyProvider} from "../../providers/spotify/spotify";
 
 /**
@@ -34,6 +38,17 @@ export class AddPlaylistPage {
     this.navCtrl.push(AddArtistPage)
   }
 
+  pushToAddSong(){
+    this.navCtrl.push(SongPage)
+  }
+
+  pushToPlaylists(){
+    this.navCtrl.push(PlaylistPage)
+  }
+
+  pushToAddGenre(){
+    this.navCtrl.push(GenrePage)
+  }
   getUserId(){
     this.spotifyProvider.getUserProfile().subscribe(
       data=>{

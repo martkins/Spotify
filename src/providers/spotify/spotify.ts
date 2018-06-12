@@ -31,7 +31,6 @@ export class SpotifyProvider {
 
   private baseUrl:string = "https://api.spotify.com/v1";
   private searchUrl:string = this.baseUrl+'/search?q=';
-  private albumsUrl:string = this.baseUrl+'/artists/';
   private albumUrl:string = this.baseUrl+'/albums/';
 
 
@@ -64,11 +63,7 @@ export class SpotifyProvider {
     })
   }
 
-  searchAlbums(id:string){
-    return this.http.get(this.albumsUrl+id+'/albums',{
-      headers:this.requestHeader
-    })
-  }
+
 
   searchAlbum(id:string){
     return this.http.get(this.albumUrl+id,{
@@ -267,7 +262,7 @@ API for song's lyrics
     })
   }
 
-  createPlaylist(id, name, description, isPublic){
+  createPlaylist(id, name, description, isPublic){ //TODO: farlo per Mobile
     return this.http.post(this.baseUrl+'/users/'+id+'/playlists',{
       name : name,
       description : description,
@@ -277,11 +272,21 @@ API for song's lyrics
     })
   }
 
+  addTracksToPlaylist(tracks){ //TODO: farlo per Mobile
+    return this.http.post(this.baseUrl+'/users/'+this.userId+'/playlists/'+this.playlistId+'/tracks',{
+      uris : tracks
+    },{
+      headers:this.requestHeader
+    })
+  }
+
   getCurrentUserPlaylist(){
     return this.http.get(this.baseUrl+'/me/playlists',{
       headers:this.requestHeader
     })
   }
+
+
 
 
 /*
@@ -293,4 +298,17 @@ API for song's lyrics
       headers:this.requestHeader
     })
   }
+
+  searchAlbums(id:string){
+    return this.http.get(this.baseUrl+'/artists/'+id+'/albums?include_groups=album',{
+      headers:this.requestHeader
+    })
+  }
+
+  getAlbumsTracks(ids){
+    return this.http.get(this.baseUrl+'/albums?ids='+ids,{
+      headers:this.requestHeader
+    })
+  }
 }
+

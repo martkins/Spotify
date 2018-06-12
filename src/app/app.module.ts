@@ -19,6 +19,11 @@ import {LyricsPage} from "../pages/lyrics/lyrics";
 import {ProgressPage} from "../pages/progress/progress";
 import {AddArtistPage} from "../pages/add-artist/add-artist";
 import {AddPlaylistPage} from "../pages/add-playlist/add-playlist";
+import {SongPage} from "../pages/song/song";
+import {PlaylistPage} from "../pages/playlist/playlist";
+import {GenrePage} from "../pages/genre/genre";
+import {AlbumsPage} from "../pages/albums/albums";
+import {RelatedArtistsPage} from "../pages/related-artists/related-artists";
 
 @NgModule({
   declarations: [
@@ -30,7 +35,12 @@ import {AddPlaylistPage} from "../pages/add-playlist/add-playlist";
     LyricsPage,
     ProgressPage,
     AddArtistPage,
-    AddPlaylistPage
+    AddPlaylistPage,
+    SongPage,
+    PlaylistPage,
+    GenrePage,
+    AlbumsPage,
+    RelatedArtistsPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +58,12 @@ import {AddPlaylistPage} from "../pages/add-playlist/add-playlist";
     LyricsPage,
     ProgressPage,
     AddArtistPage,
-    AddPlaylistPage
+    AddPlaylistPage,
+    SongPage,
+    PlaylistPage,
+    GenrePage,
+    AlbumsPage,
+    RelatedArtistsPage
   ],
   providers: [
     StatusBar,
