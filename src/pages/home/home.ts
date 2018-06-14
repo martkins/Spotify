@@ -66,7 +66,7 @@ export class HomePage {
   showOwnedPlaylist(){
     this.spotifyProvider.getCurrentUserPlaylist().subscribe(data=>{
       this.resp = data;
-      let index2 = 0
+      let index2 = -1
       this.numPlaylists = this.range(this.resp.items.length)
       for (let index in this.numPlaylists) {
         if (this.resp.items[index].owner.id == this.spotifyProvider.userId){
