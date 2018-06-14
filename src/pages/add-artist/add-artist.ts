@@ -10,6 +10,9 @@ import {RelatedArtistsPage} from "../related-artists/related-artists";
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+  //TODO: Implementare HTML (con cards?)
+  //TODO: Far scegliere all'utente il nome dell'artista come prima cosa
+  //TODO: Far scegliere all'utente il numero di canzoni random da aggiungere
 
 @IonicPage()
 @Component({
@@ -18,11 +21,11 @@ import {RelatedArtistsPage} from "../related-artists/related-artists";
 })
 export class AddArtistPage {
 
-  id = '23TFHmajVfBtlRx5MXqgoz'
+  id = '23TFHmajVfBtlRx5MXqgoz' //id canzone
   res: any
-  uris: string[] = []
+  uris: string[] = []           //array di canzoni passati a addToPlaylist
   albumsIds :string = ''
-  numberRandom = 10
+  numberRandom = 10             //numero di canzoni random
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
   }

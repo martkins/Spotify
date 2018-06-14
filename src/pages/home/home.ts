@@ -72,7 +72,6 @@ export class HomePage {
       this.numPlaylists = this.range(this.resp.items.length)
       for (let index in this.numPlaylists) {
         if (this.resp.items[index].owner.id.toString() == this.spotifyProvider.userId.toString()){
-          console.log(this.resp.items[index].name)
           index2 = index2+1
           if (this.resp.items[index].images[0] == null) {
             this.ownedPlaylists[index2] = new playlist(this.resp.items[index].name,

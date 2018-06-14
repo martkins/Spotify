@@ -324,5 +324,21 @@ API for song's lyrics
       headers:this.requestHeader
     })
   }
+
+/*
+  API for songs
+*/
+
+  getRaccomandatedSongs(id,number){
+    return this.http.get(this.baseUrl+'/recommendations?limit='+number+'&seed_tracks='+id,{
+      headers:this.requestHeader
+    })
+  }
+
+  getTopTracks(term){
+    return this.http.get(this.baseUrl+'/me/top/tracks?time_range='+term+'&limit=50',{
+      headers:this.requestHeader
+    })
+  }
 }
 

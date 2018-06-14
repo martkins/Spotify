@@ -13,6 +13,8 @@ import {SpotifyProvider} from "../../providers/spotify/spotify";
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+  //TODO: Implementare HTML (con cards?)
+  //TODO: Far decidere a utente nome, descrizione, pubblico. Questa deve essere la prima cosa che un utente deve fare
 
 @IonicPage()
 @Component({

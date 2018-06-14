@@ -8,7 +8,7 @@ import {SpotifyProvider} from "../../providers/spotify/spotify";
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+  //TODO: Implementare HTML (con cards?)
 @IonicPage()
 @Component({
   selector: 'page-albums',
