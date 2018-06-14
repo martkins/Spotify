@@ -18,7 +18,7 @@
     <ion-slide *ngFor="let playlist of playlists">
       <h3 class="name">{{playlist.name}}</h3>
       <h6 class="subname">{{playlist.numTracks}} brani</h6>
-      <img class="image" data-src="{{playlist.img}}" (click)='playPlaylist(playlist.id)'>
+      <img class="image" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
     </ion-slide>
   </ion-slides>
 
