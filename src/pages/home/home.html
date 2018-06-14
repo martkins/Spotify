@@ -1,7 +1,7 @@
 <ion-header>
 </ion-header>
 
-<ion-content paddingl>
+<ion-content padding>
   <!-- <ion-searchbar (ionInput)="search($event)"></ion-searchbar>
   <div *ngIf="items?.length>0">
     <ion-list *ngFor="let i of items">
@@ -15,10 +15,10 @@
   <h3>Le tue playlist</h3>
 
   <ion-slides class="slides" loop="true" style="background-color: white">
-    <ion-slide *ngFor="let image of [1,2]">
-      <img class="playlist" data-src="./assets/imgs/slide{{image}}.jpeg">
-      <h3 class="name">Nome Playlist</h3>
-      <h6 class="subname">8 brani</h6>
+    <ion-slide *ngFor="let playlist of playlists">
+      <h3 class="name">{{playlist.name}}</h3>
+      <h6 class="subname">{{playlist.numTracks}} brani</h6>
+      <img class="image" data-src="{{playlist.img}}">
     </ion-slide>
   </ion-slides>
 

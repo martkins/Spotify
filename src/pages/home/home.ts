@@ -11,11 +11,33 @@ import {AddPlaylistPage} from "../add-playlist/add-playlist";
   templateUrl: 'home.html'
 })
 
+
 export class HomePage {
   private resp:any;
   private items:any;
-  constructor(public navCtrl: NavController, public spotifyProvider:SpotifyProvider) {
+  private playlists = [];
+  private range = (N) => Array.from({length: N}, (v, k) => k+1) ;
+  private numPlaylists: any;
 
+
+  constructor(public navCtrl: NavController, public spotifyProvider:SpotifyProvider) {
+    spotifyProvider.getCurrentUserPlaylist().subscribe(data=>{
+      this.resp = data;
+      this.numPlaylists = this.range(this.resp.items.length)
+      console.log(this.resp.items)
+      for (let index in this.numPlaylists) {
+        if (this.resp.items[index].images[1] == null) {
+          this.playlists[index] = new playlist(this.resp.items[index].name,
+                                              'http://www.thetravelboss.com/images/latest-img1.jpg',
+                                              this.resp.items[index].tracks.total)
+        }
+        else {
+          this.playlists[index] = new playlist(this.resp.items[index].name,
+                                              this.resp.items[index].images[1].url,
+                                              this.resp.items[index].tracks.total)
+          }
+      }
+    })
   }
 
 
@@ -53,3 +75,9 @@ export class HomePage {
 
 }
 
+class playlist {
+  constructor(
+    public name: string,
+    public img: any,
+    public numTracks: number) { }
+}

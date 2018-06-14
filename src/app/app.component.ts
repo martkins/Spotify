@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SpotifyProvider} from "../providers/spotify/spotify";
 
-import { LoginFacePage } from '../pages/login-face/login-face';
 import { TabsPage } from '../pages/tabs/tabs';
 @Component({
   templateUrl: 'app.html'
