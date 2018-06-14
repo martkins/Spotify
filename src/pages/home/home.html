@@ -15,13 +15,22 @@
   <h3>Le tue playlist</h3>
 
   <ion-slides class="slides" loop="true" style="background-color: white">
-    <ion-slide *ngFor="let playlist of playlists">
+    <ion-slide *ngFor="let playlist of ownedPlaylists">
       <h3 class="name">{{playlist.name}}</h3>
       <h6 class="subname">{{playlist.numTracks}} brani</h6>
       <img class="image" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
     </ion-slide>
   </ion-slides>
 
+  <h3>Le playlist che segui</h3>
+
+  <ion-slides class="slides" loop="true" style="background-color: white">
+    <ion-slide *ngFor="let playlist of followedPlaylists">
+      <h3 class="name">{{playlist.name}}</h3>
+      <h6 class="subname">{{playlist.numTracks}} brani</h6>
+      <img class="image" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
+    </ion-slide>
+  </ion-slides>
   <h3>Consigliate da Spotify</h3>
 
   <ion-slides class="slides" loop="true" style="background-color: white">

@@ -15,7 +15,8 @@ import {AddPlaylistPage} from "../add-playlist/add-playlist";
 export class HomePage {
   private resp:any;
   private items:any;
-  private playlists = [];
+  private ownedPlaylists = [];
+  private followedPlaylists = []
   private range = (N) => Array.from({length: N}, (v, k) => k+1) ;
   private numPlaylists: any;
 
@@ -27,6 +28,7 @@ export class HomePage {
   ionViewWillEnter(){
     this.getUserId()
     this.showOwnedPlaylist()
+    this.showFollowedPlaylist()
 
   }
 
@@ -66,27 +68,50 @@ export class HomePage {
   showOwnedPlaylist(){
     this.spotifyProvider.getCurrentUserPlaylist().subscribe(data=>{
       this.resp = data;
-      let index2 = 0
+      let index2 = -1
       this.numPlaylists = this.range(this.resp.items.length)
       for (let index in this.numPlaylists) {
-        if (this.resp.items[index].owner.id == this.spotifyProvider.userId){
+        if (this.resp.items[index].owner.id.toString() == this.spotifyProvider.userId.toString()){
+          console.log(this.resp.items[index].name)
           index2 = index2+1
-          if (this.resp.items[index2].images[1] == null) {
-            this.playlists[index2] = new playlist(this.resp.items[index2].name,
+          if (this.resp.items[index].images[1] == null) {
+            this.ownedPlaylists[index2] = new playlist(this.resp.items[index].name,
               'http://www.thetravelboss.com/images/latest-img1.jpg',
-              this.resp.items[index2].tracks.total,
-              this.resp.items[index2].uri)
+              this.resp.items[index].tracks.total,
+              this.resp.items[index].uri)
           }
           else {
-            this.playlists[index2] = new playlist(this.resp.items[index2].name,
-              this.resp.items[index2].images[1].url,
-              this.resp.items[index2].tracks.total,
-              this.resp.items[index2].uri)
+            this.ownedPlaylists[index2] = new playlist(this.resp.items[index].name,
+              this.resp.items[index].images[1].url,
+              this.resp.items[index].tracks.total,
+              this.resp.items[index].uri)
           }
         }
+      }
+    })
+  }
 
-
-
+  showFollowedPlaylist(){
+    this.spotifyProvider.getCurrentUserPlaylist().subscribe(data=>{
+      this.resp = data;
+      let index2 = -1
+      this.numPlaylists = this.range(this.resp.items.length)
+      for (let index in this.numPlaylists) {
+        if (this.resp.items[index].owner.id.toString() != this.spotifyProvider.userId.toString()){
+          index2 = index2+1
+          if (this.resp.items[index].images[1] == null) {
+            this.followedPlaylists[index2] = new playlist(this.resp.items[index].name,
+              'http://www.thetravelboss.com/images/latest-img1.jpg',
+              this.resp.items[index].tracks.total,
+              this.resp.items[index].uri)
+          }
+          else {
+            this.followedPlaylists[index2] = new playlist(this.resp.items[index].name,
+              this.resp.items[index].images[1].url,
+              this.resp.items[index].tracks.total,
+              this.resp.items[index].uri)
+          }
+        }
       }
     })
   }
