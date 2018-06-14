@@ -15,6 +15,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SongPage {
 
+
+  id = '3JV7cTXVaOfKRhq17XyEoi'
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

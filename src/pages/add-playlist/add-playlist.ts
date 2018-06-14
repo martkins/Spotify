@@ -26,7 +26,6 @@ export class AddPlaylistPage {
   isPublic = false
   res : any
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
-    this.getUserId()
   }
 
   ionViewDidLoad() {
@@ -49,16 +48,7 @@ export class AddPlaylistPage {
   pushToAddGenre(){
     this.navCtrl.push(GenrePage)
   }
-  getUserId(){
-    this.spotifyProvider.getUserProfile().subscribe(
-      data=>{
-        this.res= data
-        this.spotifyProvider.userId = this.res.id
-      },err =>{
-        console.log(err)
-      }
-    )
-  }
+
 
   addPlaylist(){
     this.spotifyProvider.createPlaylist(this.spotifyProvider.userId,this.name,this.description,this.isPublic).subscribe(

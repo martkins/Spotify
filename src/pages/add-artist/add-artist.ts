@@ -29,7 +29,6 @@ export class AddArtistPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddArtistPage');
-    console.log(this.uris)
   }
 
 /*
