@@ -82,7 +82,7 @@ export class HomePage {
           }
           else {
             this.ownedPlaylists[index2] = new playlist(this.resp.items[index].name,
-              this.resp.items[index].images[0].url,
+              this.resp.items[index].images[1].url,
               this.resp.items[index].tracks.total,
               this.resp.items[index].uri)
           }
