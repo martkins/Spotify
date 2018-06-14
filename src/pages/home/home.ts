@@ -21,28 +21,13 @@ export class HomePage {
 
 
   constructor(public navCtrl: NavController, public spotifyProvider:SpotifyProvider) {
-    
+
   }
 
   ionViewWillEnter(){
-    this.spotifyProvider.getCurrentUserPlaylist().subscribe(data=>{
-      this.resp = data;
-      this.numPlaylists = this.range(this.resp.items.length)
-      for (let index in this.numPlaylists) {
-        if (this.resp.items[index].images[1] == null) {
-          this.playlists[index] = new playlist(this.resp.items[index].name,
-                                              'http://www.thetravelboss.com/images/latest-img1.jpg',
-                                              this.resp.items[index].tracks.total,
-                                              this.resp.items[index].uri)
-        }
-        else {
-          this.playlists[index] = new playlist(this.resp.items[index].name,
-                                              this.resp.items[index].images[1].url,
-                                              this.resp.items[index].tracks.total,
-                                              this.resp.items[index].uri)
-          }
-      }
-    })
+    this.getUserId()
+    this.showOwnedPlaylist()
+
   }
 
   search(event:any){
@@ -77,11 +62,51 @@ export class HomePage {
     this.navCtrl.push(LyricsPage)
   }
 
+
+  showOwnedPlaylist(){
+    this.spotifyProvider.getCurrentUserPlaylist().subscribe(data=>{
+      this.resp = data;
+      let index2 = 0
+      this.numPlaylists = this.range(this.resp.items.length)
+      for (let index in this.numPlaylists) {
+        if (this.resp.items[index].owner.id == this.spotifyProvider.userId){
+          index2 = index2+1
+          if (this.resp.items[index2].images[1] == null) {
+            this.playlists[index2] = new playlist(this.resp.items[index2].name,
+              'http://www.thetravelboss.com/images/latest-img1.jpg',
+              this.resp.items[index2].tracks.total,
+              this.resp.items[index2].uri)
+          }
+          else {
+            this.playlists[index2] = new playlist(this.resp.items[index2].name,
+              this.resp.items[index2].images[1].url,
+              this.resp.items[index2].tracks.total,
+              this.resp.items[index2].uri)
+          }
+        }
+
+
+
+      }
+    })
+  }
+
   reproducePlaylist(id){
     this.spotifyProvider.playPlaylist(id).subscribe(
       data=>{
         console.log(data)
       },err=>{
+        console.log(err)
+      }
+    )
+  }
+
+  getUserId(){
+    this.spotifyProvider.getUserProfile().subscribe(
+      data=>{
+        this.resp= data
+        this.spotifyProvider.userId = this.resp.id
+      },err =>{
         console.log(err)
       }
     )
