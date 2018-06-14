@@ -310,5 +310,11 @@ API for song's lyrics
       headers:this.requestHeader
     })
   }
+
+  getRelatedArtists(id){
+    return this.http.get(this.baseUrl+'/artists/'+id+'/related-artists',{
+      headers:this.requestHeader
+    })
+  }
 }
 

@@ -128,6 +128,8 @@ export class AddArtistPage {
   }
 
   pushToRelatedArtists(){
-    this.navCtrl.push(RelatedArtistsPage)
+    this.navCtrl.push(RelatedArtistsPage,{
+      id:this.id
+    })
   }
 }

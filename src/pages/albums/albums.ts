@@ -23,7 +23,6 @@ export class AlbumsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
     this.id = navParams.get('id')
-    console.log(this.id)
     this.getAlbums()
   }
 
