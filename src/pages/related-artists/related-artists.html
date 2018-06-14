@@ -14,5 +14,14 @@
 
 
 <ion-content padding>
+  <div *ngIf="artists?.length>0">
+    <ion-list *ngFor="let a of artists">
+      <ion-card (click)="addTopTracks(a.id)">
+        <img src="{{a.images[0].url}}"/>
+        <div class="card-title">{{a.name}}</div>
+        <div class="card-subtitle">Add 10 Top Tracks</div>
+      </ion-card>
+    </ion-list>
+  </div>
 
 </ion-content>

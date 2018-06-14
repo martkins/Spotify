@@ -3,6 +3,8 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { TabsPage } from '../pages/tabs/tabs';
+import { SuperTabsModule } from 'ionic2-super-tabs';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -19,6 +21,11 @@ import {LyricsPage} from "../pages/lyrics/lyrics";
 import {ProgressPage} from "../pages/progress/progress";
 import {AddArtistPage} from "../pages/add-artist/add-artist";
 import {AddPlaylistPage} from "../pages/add-playlist/add-playlist";
+import {SongPage} from "../pages/song/song";
+import {PlaylistPage} from "../pages/playlist/playlist";
+import {GenrePage} from "../pages/genre/genre";
+import {AlbumsPage} from "../pages/albums/albums";
+import {RelatedArtistsPage} from "../pages/related-artists/related-artists";
 
 @NgModule({
   declarations: [
@@ -30,13 +37,20 @@ import {AddPlaylistPage} from "../pages/add-playlist/add-playlist";
     LyricsPage,
     ProgressPage,
     AddArtistPage,
-    AddPlaylistPage
+    AddPlaylistPage,
+    SongPage,
+    PlaylistPage,
+    GenrePage,
+    AlbumsPage,
+    RelatedArtistsPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    SuperTabsModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -48,7 +62,13 @@ import {AddPlaylistPage} from "../pages/add-playlist/add-playlist";
     LyricsPage,
     ProgressPage,
     AddArtistPage,
-    AddPlaylistPage
+    AddPlaylistPage,
+    SongPage,
+    PlaylistPage,
+    GenrePage,
+    AlbumsPage,
+    RelatedArtistsPage,
+    TabsPage
   ],
   providers: [
     StatusBar,
