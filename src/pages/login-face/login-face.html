@@ -13,13 +13,6 @@
 </ion-header>
 
 <ion-content class="content" text-center>
-  <ion-buttons>
-    <button ion-button  round (click)="pushToProgress()">
-      Show Song
-    </button>
-  </ion-buttons>
-
-
 
   <ion-buttons>
     <button ion-button  round (click)="login()">
@@ -28,20 +21,4 @@
   </ion-buttons>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-    <div style = "text-align:center">
-      <ion-buttons>
-        <button ion-button icon-only color="royal"  class="skipBackward" (click)="spotifyProvider.playPreviousTrack()">
-          <ion-icon name="skip-backward"></ion-icon>
-        </button>
-        <button ion-button icon-only color="royal"  class="playPause" (click)="spotifyProvider.playOrPause()">
-          <ion-icon [name]="spotifyProvider.icon"></ion-icon>
-        </button>
-        <button ion-button icon-only color="royal" class="skipForward" (click)="spotifyProvider.playNextTrack()">
-          <ion-icon name="skip-forward"></ion-icon>
-        </button>
-      </ion-buttons>
-    </div>
-  </ion-toolbar>
-</ion-footer>
+

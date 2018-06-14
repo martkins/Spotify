@@ -21,7 +21,8 @@ export class LoginFacePage {
 
   icon = "play"
 
-  constructor(private platform:Platform,public http:HttpClient,public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
+  constructor(private platform:Platform,public http:HttpClient,public navCtrl: NavController, 
+    public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
   }
 
 
@@ -40,12 +41,5 @@ export class LoginFacePage {
       this.spotifyProvider.loginComputer()
     }
   }
-  pushToProgress(){
-    this.navCtrl.push(ProgressPage)
-
-  }
-
-
-
 
 }

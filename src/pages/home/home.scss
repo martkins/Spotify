@@ -1,5 +1,28 @@
-page-home {
-  //.skipForward{
-  //  margin-right: 58rem;
-  //}
+
+h3 {
+  text-align: left;
+  padding-left: 20px;
 }
+
+.slides {
+  height: 225px;
+  position: relative;
+    text-align: center;
+    color: white;
+}
+
+.name {
+  padding-left: 0px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.subname {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

@@ -3,6 +3,8 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { TabsPage } from '../pages/tabs/tabs';
+import { SuperTabsModule } from 'ionic2-super-tabs';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -40,13 +42,15 @@ import {RelatedArtistsPage} from "../pages/related-artists/related-artists";
     PlaylistPage,
     GenrePage,
     AlbumsPage,
-    RelatedArtistsPage
+    RelatedArtistsPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    SuperTabsModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -63,7 +67,8 @@ import {RelatedArtistsPage} from "../pages/related-artists/related-artists";
     PlaylistPage,
     GenrePage,
     AlbumsPage,
-    RelatedArtistsPage
+    RelatedArtistsPage,
+    TabsPage
   ],
   providers: [
     StatusBar,

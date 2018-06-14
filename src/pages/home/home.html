@@ -1,13 +1,8 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Spotify
-    </ion-title>
-  </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-searchbar (ionInput)="search($event)"></ion-searchbar>
+<ion-content paddingl>
+  <!-- <ion-searchbar (ionInput)="search($event)"></ion-searchbar>
   <div *ngIf="items?.length>0">
     <ion-list *ngFor="let i of items">
       <ion-item>
@@ -16,27 +11,32 @@
         <button ion-button color="secondary" (click)="searchAlbums(i.id,i.name)">Albums</button>
       </ion-item>
     </ion-list>
-  </div>
+  </div> -->
+  <h3>Le tue playlist</h3>
+
+  <ion-slides class="slides" loop="true" style="background-color: white">
+    <ion-slide *ngFor="let image of [1,2]">
+      <img class="playlist" data-src="./assets/imgs/slide{{image}}.jpeg">
+      <h3 class="name">Nome Playlist</h3>
+      <h6 class="subname">8 brani</h6>
+    </ion-slide>
+  </ion-slides>
+
+  <h3>Consigliate da Spotify</h3>
+
+  <ion-slides class="slides" loop="true" style="background-color: white">
+    <ion-slide *ngFor="let image of [1,2]">
+      <img class="playlist" data-src="./assets/imgs/slide{{image}}.jpeg">
+      <h3 class="name">Nome Playlist</h3>
+      <h6 class="subname">8 brani</h6>
+    </ion-slide>
+  </ion-slides>
+  
+
+
   <button ion-button (click)="pushToLyrics()">Get Lyrics</button>
-  <button ion-button (click)="pushToAddPlaylist()">Add Playlist</button>
   <button ion-button (click)="loginSpotify()">Login to Spotify</button>
 </ion-content>
 
 
-<ion-footer>
-  <ion-toolbar>
-    <div style = "text-align:center">
-      <ion-buttons>
-        <button ion-button icon-only color="royal"  class="skipBackward" (click)="spotifyProvider.playPreviousTrack()">
-          <ion-icon name="skip-backward"></ion-icon>
-        </button>
-        <button ion-button icon-only color="royal"  class="playPause" (click)="spotifyProvider.playOrPause()">
-          <ion-icon [name]="spotifyProvider.icon"></ion-icon>
-        </button>
-        <button ion-button icon-only color="royal" class="skipForward" (click)="spotifyProvider.playNextTrack()">
-          <ion-icon name="skip-forward"></ion-icon>
-        </button>
-      </ion-buttons>
-    </div>
-  </ion-toolbar>
-</ion-footer>
+

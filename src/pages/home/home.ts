@@ -51,9 +51,5 @@ export class HomePage {
     this.navCtrl.push(LyricsPage)
   }
 
-  pushToAddPlaylist(){
-    this.navCtrl.push(AddPlaylistPage)
-
-  }
 }
 
