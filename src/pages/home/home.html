@@ -31,15 +31,6 @@
       <img class="image" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
     </ion-slide>
   </ion-slides>
-  <h3>Consigliate da Spotify</h3>
-
-  <ion-slides class="slides" loop="true" style="background-color: white">
-    <ion-slide *ngFor="let image of [1,2]">
-      <img class="playlist" data-src="./assets/imgs/slide{{image}}.jpeg">
-      <h3 class="name">Nome Playlist</h3>
-      <h6 class="subname">8 brani</h6>
-    </ion-slide>
-  </ion-slides>
 
 
   <button ion-button (click)="pushToLyrics()">Get Lyrics</button>
