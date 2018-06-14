@@ -21,7 +21,11 @@ export class HomePage {
 
 
   constructor(public navCtrl: NavController, public spotifyProvider:SpotifyProvider) {
-    spotifyProvider.getCurrentUserPlaylist().subscribe(data=>{
+    
+  }
+
+  ionViewWillEnter(){
+    this.spotifyProvider.getCurrentUserPlaylist().subscribe(data=>{
       this.resp = data;
       this.numPlaylists = this.range(this.resp.items.length)
       for (let index in this.numPlaylists) {
@@ -40,7 +44,6 @@ export class HomePage {
       }
     })
   }
-
 
   search(event:any){
     let value = event.target.value;
