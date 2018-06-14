@@ -118,6 +118,14 @@ export class SpotifyProvider {
     })
   }
 
+  playPlaylist(playlistId){
+    return this.http.put(this.baseUrl+'/me/player/play',{
+      "context_uri":playlistId
+    },{
+      headers:this.requestHeader
+    })
+  }
+
   playNextTrack(){
     return this.http.post(this.baseUrl+'/me/player/next',null,{
       headers:this.requestHeader
