@@ -75,7 +75,13 @@ export class HomePage {
   }
 
   reproducePlaylist(id){
-    this.spotifyProvider.playPlaylist(id)
+    this.spotifyProvider.playPlaylist(id).subscribe(
+      data=>{
+        console.log(data)
+      },err=>{
+        console.log(err)
+      }
+    )
   }
 
 }
