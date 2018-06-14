@@ -74,6 +74,10 @@ export class HomePage {
     this.navCtrl.push(LyricsPage)
   }
 
+  reproducePlaylist(id){
+    this.spotifyProvider.playPlaylist(id)
+  }
+
 }
 
 class playlist {
