@@ -21,7 +21,7 @@ import {RelatedArtistsPage} from "../related-artists/related-artists";
 })
 export class AddArtistPage {
 
-  id = '23TFHmajVfBtlRx5MXqgoz' //id canzone
+  id = '23TFHmajVfBtlRx5MXqgoz' //id artista
   res: any
   uris: string[] = []           //array di canzoni passati a addToPlaylist
   albumsIds :string = ''

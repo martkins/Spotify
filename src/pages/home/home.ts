@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component,  ViewChildren, QueryList} from '@angular/core';
+import { NavController , Slides} from 'ionic-angular';
 import { SpotifyProvider} from "../../providers/spotify/spotify";
 import {ArtistAlbumsPage} from "../artist-albums/artist-albums";
 import {LoginFacePage} from "../login-face/login-face";
 import {LyricsPage} from "../lyrics/lyrics";
-import {AddPlaylistPage} from "../add-playlist/add-playlist";
 
 @Component({
   selector: 'page-home',
@@ -13,13 +12,14 @@ import {AddPlaylistPage} from "../add-playlist/add-playlist";
 
 
 export class HomePage {
+
   private resp:any;
   private items:any;
   private ownedPlaylists = [];
   private followedPlaylists = []
   private range = (N) => Array.from({length: N}, (v, k) => k+1) ;
   private numPlaylists: any;
-
+  @ViewChildren(Slides)  slides: QueryList<Slides>;
 
   constructor(public navCtrl: NavController, public spotifyProvider:SpotifyProvider) {
 

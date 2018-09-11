@@ -12,26 +12,26 @@
       </ion-item>
     </ion-list>
   </div> -->
+
   <h3>Le tue playlist</h3>
 
-  <ion-slides class="slides" loop="true" style="background-color: white">
-    <ion-slide *ngFor="let playlist of ownedPlaylists">
-      <h3 class="name">{{playlist.name}}</h3>
-      <h6 class="subname">{{playlist.numTracks}} brani</h6>
-      <img class="image" style="width: 300px; height: 300px;" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
+  <ion-slides class="slides" slidesPerView = 3.5 centeredSlides = true spaceBetween = -16 zoom = true >
+    <ion-slide  *ngFor="let playlist of ownedPlaylists">
+          <img class="image" style="width: 80%; height: 80%;" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
+          <h3 class="name">{{playlist.name}}</h3>
+          <h6 class="subname">{{playlist.numTracks}} brani</h6>
     </ion-slide>
   </ion-slides>
 
   <h3>Le playlist che segui</h3>
 
-  <ion-slides class="slides" loop="true" style="background-color: white">
+  <ion-slides class="slides" slidesPerView = 3.5 centeredSlides = true spaceBetween = -16 zoom = true>
     <ion-slide *ngFor="let playlist of followedPlaylists">
+      <img class="image" style="width: 80%; height: 80%;" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
       <h3 class="name">{{playlist.name}}</h3>
       <h6 class="subname">{{playlist.numTracks}} brani</h6>
-      <img class="image" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
     </ion-slide>
   </ion-slides>
-
 
   <button ion-button (click)="pushToLyrics()">Get Lyrics</button>
   <button ion-button (click)="loginSpotify()">Login to Spotify</button>
