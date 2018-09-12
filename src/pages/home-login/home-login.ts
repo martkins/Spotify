@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {SpotifyProvider} from "../../providers/spotify/spotify";
-import {HomePage} from '../home/home';
+import {TabsPage} from '../tabs/tabs';
 import {HttpClient} from "@angular/common/http";
 import {Platform} from "ionic-angular";
 /**
@@ -43,7 +43,7 @@ export class HomeLoginPage {
   }
 
   goHomePage(){
-    this.navCtrl.push(HomePage)
+    this.navCtrl.push(TabsPage)
   }
 
 }
