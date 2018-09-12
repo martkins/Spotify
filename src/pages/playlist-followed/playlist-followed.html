@@ -14,5 +14,14 @@
 
 
 <ion-content padding>
-
+  <ion-content padding>
+    <div *ngIf="followedPlaylists?.length>0">
+      <ion-list *ngFor="let playlist of followedPlaylists">
+        <ion-card (click)="addAllTracks(playlist.id)">
+          <img src="{{playlist.img}}"/>
+          <div class="card-title">{{playlist.name}}</div>
+          <div class="card-subtitle">{{playlist.numTracks}} brani</div>
+        </ion-card>
+      </ion-list>
+    </div>
 </ion-content>

@@ -338,6 +338,12 @@ API for song's lyrics
     })
   }
 
+  getPlaylistsTracks(ids){
+    return this.http.get(this.baseUrl+'/playlists/'+ids+'/tracks',{
+      headers:this.requestHeader
+    })
+  }
+
 
 
 

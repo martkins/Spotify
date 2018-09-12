@@ -13,7 +13,6 @@ import {HttpClientModule} from "@angular/common/http";
 import {ArtistAlbumsPage} from "../pages/artist-albums/artist-albums";
 import {AlbumDetailsPage} from "../pages/album-details/album-details";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
-import {LoginFacePage} from "../pages/login-face/login-face";
 import {NativeStorage} from "@ionic-native/native-storage";
 import {IonicStorageModule} from "@ionic/storage";
 import {HTTP} from "@ionic-native/http";
@@ -30,6 +29,7 @@ import {PlaylistFollowedPage} from "../pages/playlist-followed/playlist-followed
 import {PlaylistOwnedPage} from "../pages/playlist-owned/playlist-owned";
 import {PlaylistSpotifyPage} from "../pages/playlist-spotify/playlist-spotify";
 import {HomeLoginPage} from '../pages/home-login/home-login';
+import {PlaylistMenuPage} from "../pages/playlist-menu/playlist-menu";
 
 @NgModule({
   declarations: [
@@ -37,7 +37,6 @@ import {HomeLoginPage} from '../pages/home-login/home-login';
     HomePage,
     ArtistAlbumsPage,
     AlbumDetailsPage,
-    LoginFacePage,
     LyricsPage,
     ProgressPage,
     AddArtistPage,
@@ -50,8 +49,9 @@ import {HomeLoginPage} from '../pages/home-login/home-login';
     TabsPage,
     PlaylistFollowedPage,
     PlaylistOwnedPage,
-    PlaylistSpotifyPage
-    HomeLoginPage
+    PlaylistSpotifyPage,
+    HomeLoginPage,
+    PlaylistMenuPage,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +66,6 @@ import {HomeLoginPage} from '../pages/home-login/home-login';
     HomePage,
     ArtistAlbumsPage,
     AlbumDetailsPage,
-    LoginFacePage,
     LyricsPage,
     ProgressPage,
     AddArtistPage,
@@ -79,8 +78,9 @@ import {HomeLoginPage} from '../pages/home-login/home-login';
     TabsPage,
     PlaylistFollowedPage,
     PlaylistOwnedPage,
-    PlaylistSpotifyPage
-    HomeLoginPage
+    PlaylistSpotifyPage,
+    HomeLoginPage,
+    PlaylistMenuPage,
   ],
   providers: [
     StatusBar,

@@ -28,6 +28,7 @@ export class PlaylistOwnedPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PlaylistOwnedPage');
+    this.showOwnedPlaylist()
   }
 
   showOwnedPlaylist(){
@@ -42,19 +43,47 @@ export class PlaylistOwnedPage {
             this.ownedPlaylists[index2] = new playlist(this.res.items[index].name,
               'http://www.thetravelboss.com/images/latest-img1.jpg',
               this.res.items[index].tracks.total,
-              this.res.items[index].uri)
+              this.res.items[index].id)
           }
           else {
             this.ownedPlaylists[index2] = new playlist(this.res.items[index].name,
               this.res.items[index].images[0].url,
               this.res.items[index].tracks.total,
-              this.res.items[index].uri)
+              this.res.items[index].id)
           }
         }
       }
     })
   }
 
+
+
+  addAllTracks(idPlaylist){
+    this.spotifyProvider.getPlaylistsTracks(idPlaylist).subscribe(
+      data=>{
+        this.res = data
+        console.log(this.res)
+        let uris: string[] = []
+        for (let item of this.res.items){
+          uris.push(item.track.uri)
+        }
+        this.addToPlaylist(uris)
+      }, err=>{
+        console.log(err)
+      }
+    )
+  }
+
+
+  addToPlaylist(tracks){
+    this.spotifyProvider.addTracksToPlaylist(tracks).subscribe(
+      data=>{
+        console.log(data)
+      },err=>{
+        console.log(err)
+      }
+    )
+  }
 }
 
 class playlist {

@@ -6,6 +6,7 @@ import {PlaylistPage} from "../playlist/playlist";
 import {GenrePage} from "../genre/genre";
 
 import {SpotifyProvider} from "../../providers/spotify/spotify";
+import {PlaylistMenuPage} from "../playlist-menu/playlist-menu";
 
 /**
  * Generated class for the AddPlaylistPage page.
@@ -13,8 +14,7 @@ import {SpotifyProvider} from "../../providers/spotify/spotify";
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-  //TODO: Implementare HTML (con cards?)
-  //TODO: Far decidere a utente nome, descrizione, pubblico. Questa deve essere la prima cosa che un utente deve fare
+  //TODO: Far decidere a utente nome, descrizione, pubblico, magari con un popup che si apre dopo aver cliccato su crea playlist
 
 @IonicPage()
 @Component({
@@ -34,6 +34,23 @@ export class AddPlaylistPage {
     console.log('ionViewDidLoad AddPlaylistPage');
   }
 
+  pushToPlaylistMenu(){
+    this.addPlaylist()
+    this.navCtrl.push(PlaylistMenuPage)
+  }
+
+
+  addPlaylist(){
+    this.spotifyProvider.createPlaylist(this.spotifyProvider.userId,this.name,this.description,this.isPublic).subscribe(
+      data=>{
+        this.res = data
+        this.spotifyProvider.playlistId = this.res.id
+        console.log(data)
+      },err =>{
+        console.log(err)
+      }
+    )
+  }
 
   pushToAddArtist(){
     this.navCtrl.push(AddArtistPage)
@@ -49,18 +66,5 @@ export class AddPlaylistPage {
 
   pushToAddGenre(){
     this.navCtrl.push(GenrePage)
-  }
-
-
-  addPlaylist(){
-    this.spotifyProvider.createPlaylist(this.spotifyProvider.userId,this.name,this.description,this.isPublic).subscribe(
-      data=>{
-        this.res = data
-        this.spotifyProvider.playlistId = this.res.id
-        console.log(data)
-      },err =>{
-        console.log(err)
-      }
-    )
   }
 }

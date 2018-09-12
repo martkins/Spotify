@@ -2,7 +2,6 @@ import { Component,  ViewChildren, QueryList} from '@angular/core';
 import { NavController , Slides} from 'ionic-angular';
 import { SpotifyProvider} from "../../providers/spotify/spotify";
 import {ArtistAlbumsPage} from "../artist-albums/artist-albums";
-import {LoginFacePage} from "../login-face/login-face";
 import {LyricsPage} from "../lyrics/lyrics";
 
 @Component({
@@ -139,5 +138,5 @@ class playlist {
     public name: string,
     public img: any,
     public numTracks: number,
-    public id: string) { }
+    public uri: string) { }
 }

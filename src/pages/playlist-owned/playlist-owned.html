@@ -14,23 +14,13 @@
 
 
 <ion-content padding>
-  <h3>Le tue playlist</h3>
-
-  <ion-slides class="slides" slidesPerView = 3.5 centeredSlides = true spaceBetween = -16 zoom = true >
-    <ion-slide  *ngFor="let playlist of ownedPlaylists">
-      <img class="image" style="width: 80%; height: 80%;" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
-      <h3 class="name">{{playlist.name}}</h3>
-      <h6 class="subname">{{playlist.numTracks}} brani</h6>
-    </ion-slide>
-  </ion-slides>
-
   <ion-content padding>
     <div *ngIf="ownedPlaylists?.length>0">
       <ion-list *ngFor="let playlist of ownedPlaylists">
-        <ion-card (click)="addTracks(playlist .id)">
-          <img src="{{a.images[0].url}}"/>
-          <div class="card-title">{{a.name}}</div>
-          <div class="card-subtitle">Add 10 Top Tracks</div>
+        <ion-card (click)="addAllTracks(playlist.id)">
+          <img src="{{playlist.img}}"/>
+          <div class="card-title">{{playlist.name}}</div>
+          <div class="card-subtitle">{{playlist.numTracks}} brani</div>
         </ion-card>
       </ion-list>
     </div>
