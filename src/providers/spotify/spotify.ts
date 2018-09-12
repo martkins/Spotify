@@ -30,7 +30,7 @@ export class SpotifyProvider {
   requestHeader:any;
   userId = ''
   playlistId = ''
-  token:any = 'BQCN9J-CtaOw21RF3LNWIreCgddZLTAqWlRdiJdLXRVLV1ScO-sHIAuBqqmGAl3hFVH-4SYP8gSqRAwPwPWJmvg6GIEIoRkWfOwmA7-oX_NjeRNxK_uDssl8hRP9AshWZhdapxdoxXo6OdAi38sBTm0Jq2YiWsXoDIh1B-QqKxFZdLVnI-ctu4UhKMaFFyv4GZGIPWFmGLyZIIGOm7fH5VVCkmhGCH2GnTLhiJw9uitRg4Zqc1uhiJhIc0HxV-Zpis-qVjbosUAHiye4vz5IMhJ92gDHCw&token_type=Bearer&expires_in=3600&state=123'
+  token:any = 'BQBg35KUvGkBkE9TJgJ7ObMLTrotaxEbLyJA5G_WcOzJvzYKlWQvgxEw-VkovLTRRMKNTH1vLlycxpFTkPBY-6dD8RBhwgqC86cZIzgWWOlolZqmwz8kFL6sRKomd0pVx0DFbti0uaPwGeqt-mYPcnEGwAT7IPNtYrZDgfLx1_h_AeDkmUSEdzobHgJTE7IGkV6s_umZZqZryuzYIOu4rBBtZIcz6-BbxibpvjaKqVJ8toFYAUBEUsEUJjZzDamrfg611pX3shGWOw0KVAwKLPIUQUgxaQ&token_type=Bearer&expires_in=3600&state=123'
   userLoggedIn: boolean = false;
 
   private baseUrl:string = "https://api.spotify.com/v1";
@@ -84,34 +84,15 @@ export class SpotifyProvider {
 
   }
 
-  loginSpotify(){
-    return new Promise((resolve,reject)=> {
-      let browserRef = window.open('https://accounts.spotify.com/authorize?client_id=' + this.client_id + '&redirect_uri=' + this.redirect_uri + '&response_type=' + this.response_type + '&state=' + this.state + '&scope=' + this.scope,"_blank","location=no,clearsessioncache=yes,clearcache=yes");
-      browserRef.addEventListener("loadstart", (event:InAppBrowserEvent) => {
-        if (event.url.includes('localhost:8100/#access')){
-          let begin = event.url.toString().indexOf('=');
-          let end = event.url.toString().indexOf('token_type');
-          this.authToken = 'Bearer '+event.url.toString().slice(begin + 1, end - 1);
-          this.requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.authToken)
-        }
-        resolve('Ok')
-      });
-      browserRef.addEventListener("exit",function(event){
-        reject("Canceled")
-      })
-    })
-
-  }
   // loginSpotify(){
-  //   this.userLoggedIn = true;
   //   return new Promise((resolve,reject)=> {
-  //     this.authToken = 'Bearer '+ this.token;
-  //     this.requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.authToken)
   //     let browserRef = window.open('https://accounts.spotify.com/authorize?client_id=' + this.client_id + '&redirect_uri=' + this.redirect_uri + '&response_type=' + this.response_type + '&state=' + this.state + '&scope=' + this.scope,"_blank","location=no,clearsessioncache=yes,clearcache=yes");
   //     browserRef.addEventListener("loadstart", (event:InAppBrowserEvent) => {
   //       if (event.url.includes('localhost:8100/#access')){
   //         let begin = event.url.toString().indexOf('=');
   //         let end = event.url.toString().indexOf('token_type');
+  //         this.authToken = 'Bearer '+event.url.toString().slice(begin + 1, end - 1);
+  //         this.requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.authToken)
   //       }
   //       resolve('Ok')
   //     });
@@ -121,6 +102,25 @@ export class SpotifyProvider {
   //   })
 
   // }
+  loginSpotify(){
+    this.userLoggedIn = true;
+    return new Promise((resolve,reject)=> {
+      this.authToken = 'Bearer '+ this.token;
+      this.requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.authToken)
+      let browserRef = window.open('https://accounts.spotify.com/authorize?client_id=' + this.client_id + '&redirect_uri=' + this.redirect_uri + '&response_type=' + this.response_type + '&state=' + this.state + '&scope=' + this.scope,"_blank","location=no,clearsessioncache=yes,clearcache=yes");
+      browserRef.addEventListener("loadstart", (event:InAppBrowserEvent) => {
+        if (event.url.includes('localhost:8100/#access')){
+          let begin = event.url.toString().indexOf('=');
+          let end = event.url.toString().indexOf('token_type');
+        }
+        resolve('Ok')
+      });
+      browserRef.addEventListener("exit",function(event){
+        reject("Canceled")
+      })
+    })
+
+  }
 
 /*
   API for progress bar

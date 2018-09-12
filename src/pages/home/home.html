@@ -15,23 +15,27 @@
 
   <h3>Le tue playlist</h3>
 
-  <ion-slides class="slides" slidesPerView = 3.5 centeredSlides = true spaceBetween = -16 zoom = true >
-    <ion-slide  *ngFor="let playlist of ownedPlaylists">
-          <img class="image" style="width: 80%; height: 80%;" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
-          <h3 class="name">{{playlist.name}}</h3>
-          <h6 class="subname">{{playlist.numTracks}} brani</h6>
-    </ion-slide>
-  </ion-slides>
+  <div class="slidesWrapper">
+      <ion-slides class="slides" slidesPerView = 3.5 centeredSlides = true spaceBetween = -16 zoom = true >
+          <ion-slide  *ngFor="let playlist of ownedPlaylists">
+            <img class="image" style="width: 80%; height: 80%;" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
+            <h3 class="name">{{playlist.name}}</h3>
+            <h6 class="subname">{{playlist.numTracks}} brani</h6>
+          </ion-slide>
+        </ion-slides>
+  </div>
 
   <h3>Le playlist che segui</h3>
 
-  <ion-slides class="slides" slidesPerView = 3.5 centeredSlides = true spaceBetween = -16 zoom = true>
-    <ion-slide *ngFor="let playlist of followedPlaylists">
-      <img class="image" style="width: 80%; height: 80%;" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
-      <h3 class="name">{{playlist.name}}</h3>
-      <h6 class="subname">{{playlist.numTracks}} brani</h6>
-    </ion-slide>
-  </ion-slides>
+  <div class="slidesWrapper">
+      <ion-slides class="slides" slidesPerView = 3.5 centeredSlides = true spaceBetween = -16 zoom = true>
+          <ion-slide *ngFor="let playlist of followedPlaylists">
+              <img class="image" style='height: 50px;' data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
+              <h3 class="name">{{playlist.name}}</h3>
+              <h6 class="subname">{{playlist.numTracks}} brani</h6>
+           </ion-slide>
+    </ion-slides>
+  </div>
 
   <button ion-button (click)="pushToLyrics()">Get Lyrics</button>
 </ion-content>

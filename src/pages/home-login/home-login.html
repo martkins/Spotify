@@ -7,19 +7,24 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>HomeLogin</ion-title>
+    <ion-title class="title">Playlist Manager</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <div class="buttons">
-    <button ion-button (click)="login()" round>Login to Spotify</button>
-  </div>
-  <div class="buttons">
-      <button ion-button (click)="goHomePage()" round>
-        <ion-icon name="home"></ion-icon>
+  <div class="wrapper">
+    <div class="buttons">
+      <button ion-button color='dark' (click)="login()" round>
+        <h3>LOGIN &ensp;</h3>
+        <img src="../../assets/icon/spotify.png" width="100px">
       </button>
+    </div>
+    <div class="buttons">
+        <button ion-button color='dark' (click)="goHomePage()" round>
+          <ion-icon name="home"></ion-icon>
+        </button>
+    </div>
   </div>
 </ion-content>
