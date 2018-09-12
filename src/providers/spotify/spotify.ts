@@ -85,48 +85,6 @@ export class SpotifyProvider {
 
   }
 
-<<<<<<< HEAD
-=======
-  /*loginSpotify(){
-    return new Promise((resolve,reject)=> {
-      let browserRef = window.open('https://accounts.spotify.com/authorize?client_id=' + this.client_id + '&redirect_uri=' + this.redirect_uri + '&response_type=' + this.response_type + '&state=' + this.state + '&scope=' + this.scope,"_blank","location=no,clearsessioncache=yes,clearcache=yes");
-      browserRef.addEventListener("loadstart", (event:InAppBrowserEvent) => {
-        if (event.url.includes('localhost:8100/#access')){
-          let begin = event.url.toString().indexOf('=');
-          let end = event.url.toString().indexOf('token_type');
-          this.authToken = 'Bearer '+event.url.toString().slice(begin + 1, end - 1);
-          this.requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.authToken)
-        }
-        resolve('Ok')
-      });
-      browserRef.addEventListener("exit",function(event){
-        reject("Canceled")
-      })
-    })
-
-  }*/
-
-  loginSpotify(){
-    return new Promise((resolve,reject)=> {
-      this.authToken = 'Bearer '+this.token_tmp;
-      this.requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.authToken)
-      let browserRef = window.open('https://accounts.spotify.com/authorize?client_id=' + this.client_id + '&redirect_uri=' + this.redirect_uri + '&response_type=' + this.response_type + '&state=' + this.state + '&scope=' + this.scope,"_blank","location=no,clearsessioncache=yes,clearcache=yes");
-      browserRef.addEventListener("loadstart", (event:InAppBrowserEvent) => {
-        if (event.url.includes('localhost:8100/#access')){
-          let begin = event.url.toString().indexOf('=');
-          let end = event.url.toString().indexOf('token_type');
-          //this.authToken = 'Bearer '+event.url.toString().slice(begin + 1, end - 1);
-          //this.requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.authToken)
-        }
-        resolve('Ok')
-      });
-      browserRef.addEventListener("exit",function(event){
-        reject("Canceled")
-      })
-    })
-
-  }
->>>>>>> 2cbfae4d18758ccb0f414389998a6f1f5c59865e
   // loginSpotify(){
   //   return new Promise((resolve,reject)=> {
   //     let browserRef = window.open('https://accounts.spotify.com/authorize?client_id=' + this.client_id + '&redirect_uri=' + this.redirect_uri + '&response_type=' + this.response_type + '&state=' + this.state + '&scope=' + this.scope,"_blank","location=no,clearsessioncache=yes,clearcache=yes");
