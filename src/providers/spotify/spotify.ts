@@ -31,7 +31,7 @@ export class SpotifyProvider {
   requestHeader:any;
   userId = ''
   playlistId = ''
-  token:any = 'BQBg35KUvGkBkE9TJgJ7ObMLTrotaxEbLyJA5G_WcOzJvzYKlWQvgxEw-VkovLTRRMKNTH1vLlycxpFTkPBY-6dD8RBhwgqC86cZIzgWWOlolZqmwz8kFL6sRKomd0pVx0DFbti0uaPwGeqt-mYPcnEGwAT7IPNtYrZDgfLx1_h_AeDkmUSEdzobHgJTE7IGkV6s_umZZqZryuzYIOu4rBBtZIcz6-BbxibpvjaKqVJ8toFYAUBEUsEUJjZzDamrfg611pX3shGWOw0KVAwKLPIUQUgxaQ&token_type=Bearer&expires_in=3600&state=123'
+  tokenAlbe:any = 'BQBg35KUvGkBkE9TJgJ7ObMLTrotaxEbLyJA5G_WcOzJvzYKlWQvgxEw-VkovLTRRMKNTH1vLlycxpFTkPBY-6dD8RBhwgqC86cZIzgWWOlolZqmwz8kFL6sRKomd0pVx0DFbti0uaPwGeqt-mYPcnEGwAT7IPNtYrZDgfLx1_h_AeDkmUSEdzobHgJTE7IGkV6s_umZZqZryuzYIOu4rBBtZIcz6-BbxibpvjaKqVJ8toFYAUBEUsEUJjZzDamrfg611pX3shGWOw0KVAwKLPIUQUgxaQ&token_type=Bearer&expires_in=3600&state=123'
   userLoggedIn: boolean = false;
 
   private baseUrl:string = "https://api.spotify.com/v1";
@@ -106,7 +106,7 @@ export class SpotifyProvider {
   loginSpotify(){
     this.userLoggedIn = true;
     return new Promise((resolve,reject)=> {
-      this.authToken = 'Bearer '+ this.token;
+      this.authToken = 'Bearer '+ this.tokenAlbe;
       this.requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.authToken)
       let browserRef = window.open('https://accounts.spotify.com/authorize?client_id=' + this.client_id + '&redirect_uri=' + this.redirect_uri + '&response_type=' + this.response_type + '&state=' + this.state + '&scope=' + this.scope,"_blank","location=no,clearsessioncache=yes,clearcache=yes");
       browserRef.addEventListener("loadstart", (event:InAppBrowserEvent) => {
