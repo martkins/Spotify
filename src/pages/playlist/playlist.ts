@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {PlaylistOwnedPage} from "../playlist-owned/playlist-owned";
+import {PlaylistFollowedPage} from "../playlist-followed/playlist-followed";
+import {PlaylistSpotifyPage} from "../playlist-spotify/playlist-spotify";
 
 /**
  * Generated class for the PlaylistPage page.
@@ -22,4 +25,22 @@ export class PlaylistPage {
     console.log('ionViewDidLoad PlaylistPage');
   }
 
+
+  pushToPlaylistOwned(){
+    this.navCtrl.push(PlaylistOwnedPage,{
+
+    })
+  }
+
+  pushToPlaylistFollowed(){
+    this.navCtrl.push(PlaylistFollowedPage,{
+
+    })
+  }
+
+  pushToPlaylistSpotify(){
+    this.navCtrl.push(PlaylistSpotifyPage,{
+
+    })
+  }
 }

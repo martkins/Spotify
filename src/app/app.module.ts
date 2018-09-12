@@ -26,6 +26,9 @@ import {PlaylistPage} from "../pages/playlist/playlist";
 import {GenrePage} from "../pages/genre/genre";
 import {AlbumsPage} from "../pages/albums/albums";
 import {RelatedArtistsPage} from "../pages/related-artists/related-artists";
+import {PlaylistFollowedPage} from "../pages/playlist-followed/playlist-followed";
+import {PlaylistOwnedPage} from "../pages/playlist-owned/playlist-owned";
+import {PlaylistSpotifyPage} from "../pages/playlist-spotify/playlist-spotify";
 
 @NgModule({
   declarations: [
@@ -43,7 +46,11 @@ import {RelatedArtistsPage} from "../pages/related-artists/related-artists";
     GenrePage,
     AlbumsPage,
     RelatedArtistsPage,
-    TabsPage
+    TabsPage,
+    PlaylistFollowedPage,
+    PlaylistOwnedPage,
+    PlaylistSpotifyPage
+
   ],
   imports: [
     BrowserModule,
@@ -68,7 +75,10 @@ import {RelatedArtistsPage} from "../pages/related-artists/related-artists";
     GenrePage,
     AlbumsPage,
     RelatedArtistsPage,
-    TabsPage
+    TabsPage,
+    PlaylistFollowedPage,
+    PlaylistOwnedPage,
+    PlaylistSpotifyPage
   ],
   providers: [
     StatusBar,
