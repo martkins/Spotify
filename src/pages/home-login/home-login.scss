@@ -1,0 +1,22 @@
+page-home-login {
+
+
+    .buttons{
+        align-items: center;
+        display: flex; 
+        justify-content: center;
+        height: 250px;
+    }
+
+    .buttons button{
+        display: block;   
+        height: 50%;
+        width: 50%;
+    }
+
+    .buttons ion-icon{
+        font-size: 50px;
+    }
+
+
+}

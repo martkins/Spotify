@@ -56,10 +56,6 @@ export class HomePage {
     })
   }
 
-  loginSpotify(){
-    this.navCtrl.push(LoginFacePage)
-  }
-
   pushToLyrics(){
     this.navCtrl.push(LyricsPage)
   }
