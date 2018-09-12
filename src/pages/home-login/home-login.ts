@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {SpotifyProvider} from "../../providers/spotify/spotify";
+import {HomePage} from '../home/home';
 import {HttpClient} from "@angular/common/http";
 import {Platform} from "ionic-angular";
-import {ProgressPage} from "../progress/progress";
-import { TabsPage } from '../tabs/tabs';
-
 /**
- * Generated class for the LoginFacePage page.
+ * Generated class for the HomeLoginPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -15,17 +13,17 @@ import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
-  selector: 'page-login-face',
-  templateUrl: 'login-face.html',
+  selector: 'page-home-login',
+  templateUrl: 'home-login.html',
 })
-export class LoginFacePage {
+export class HomeLoginPage {
 
-  icon = "play"
-
-  constructor(private platform:Platform,public http:HttpClient,public navCtrl: NavController, 
-    public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
+  constructor(private platform:Platform,public http:HttpClient,
+    public navCtrl: NavController, public navParams: NavParams, public spotifyProvider: SpotifyProvider) {
   }
 
+  ionViewDidLoad() {
+  }
 
   login(){
     if (this.platform.is('mobile')){
@@ -42,6 +40,10 @@ export class LoginFacePage {
       this.spotifyProvider.loginComputer()
 
     }
+  }
+
+  goHomePage(){
+    this.navCtrl.push(HomePage)
   }
 
 }

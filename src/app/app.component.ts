@@ -5,11 +5,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SpotifyProvider} from "../providers/spotify/spotify";
 
 import { TabsPage } from '../pages/tabs/tabs';
+import {HomeLoginPage} from '../pages/home-login/home-login'
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage:any = HomeLoginPage;
+  // rootPage:any = TabsPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public spotifyProvider:SpotifyProvider) {
     platform.ready().then(() => {
