@@ -30,6 +30,8 @@ import {PlaylistOwnedPage} from "../pages/playlist-owned/playlist-owned";
 import {PlaylistSpotifyPage} from "../pages/playlist-spotify/playlist-spotify";
 import {HomeLoginPage} from '../pages/home-login/home-login';
 import {PlaylistMenuPage} from "../pages/playlist-menu/playlist-menu";
+import {AddTopTracksPage} from "../pages/add-top-tracks/add-top-tracks";
+import {SearchSongPage} from "../pages/search-song/search-song";
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import {PlaylistMenuPage} from "../pages/playlist-menu/playlist-menu";
     PlaylistSpotifyPage,
     HomeLoginPage,
     PlaylistMenuPage,
+    AddTopTracksPage,
+    SearchSongPage,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +85,8 @@ import {PlaylistMenuPage} from "../pages/playlist-menu/playlist-menu";
     PlaylistSpotifyPage,
     HomeLoginPage,
     PlaylistMenuPage,
+    AddTopTracksPage,
+    SearchSongPage,
   ],
   providers: [
     StatusBar,

@@ -15,16 +15,11 @@
 
 <ion-content padding>
 
-  <ion-list *ngIf="allTracks?.length>0">
-    <ion-item *ngFor="let t of allTracks">
-      <ion-thumbnail item-start>
-        <img src="{{t.img}}">
-      </ion-thumbnail>
-      <h2>{{t.name}}</h2>
-      <p>{{t.artist}}</p>
-      <button ion-button clear item-end (click)="addTrackToPlaylist(t.uri)">Add To Playlist</button>
-    </ion-item>
-  </ion-list>
-  <button ion-button (click)="addTopTracks()">Top Tracks</button>
+  <button ion-button (click)="pushToAddTopTracks()">Add Your Top Tracks</button>
+  <button ion-button (click)="pushToSearchSong()">Add Related Tracks</button>
+
+
+
+
 
 </ion-content>

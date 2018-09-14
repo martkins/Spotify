@@ -10,7 +10,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @Injectable()
 export class SpotifyProvider {
-  token_tmp = 'BQC8yqNaWF4VqoEfpCzPTosQh4_4lZm6OYEXC-6tFIOc4vwkjT4ootgg7kXi68fUZdZMXkm6r5CIQwAu0MH1MsKcLpYNPigvw9ZO1Xam4zPicaMtHikHDzrTxjENTDWg4n_tU7cSmIz4JpHd0hY4ulrolGlqKdeoZLxdD60NUS5wBLBNSKGEWJXR0sLPDtd6FqMryle64JBT6fRuOSwOtJ52a75K7zD7JsRh_XeBaCLWWfktQgj5sWs_h5iZu1Nov2J_M1pjPppyGR1F'
+  token_tmp = 'BQBuno39DWojn0T57gOy9SU_6DFroa83-wVtVFtS8Qd3_VfhyMfqSCcNvZFWxx-Hl1C3X967-56Tx0zX-emmA8bdPp5pIKD1oD-vKiivcmOlvPcR0Lk88lAg8NYJ9nhYquRpuu7Ea_JDyUqVWkL1zG_RRQaqC8SLlyA0VTAHos33MCjF8urwqN39fzHfG5lNeI_A5rkcBKZhVO5Iu8A6VBzeQFDy22gsUFRQ7Hypi_lWjBiZV_x8aapuXm1cZJGDNKb7D_A76ubMk6Ln'
 
   client_id = 'd0612aeb3d0741cb9939c51b25c75394';
   response_type = 'token';
@@ -106,7 +106,7 @@ export class SpotifyProvider {
   loginSpotify(){
     this.userLoggedIn = true;
     return new Promise((resolve,reject)=> {
-      this.authToken = 'Bearer '+ this.token;
+      this.authToken = 'Bearer '+ this.token_tmp;
       this.requestHeader = new HttpHeaders().set('Content-Type','application/json').append('Authorization',this.authToken)
       let browserRef = window.open('https://accounts.spotify.com/authorize?client_id=' + this.client_id + '&redirect_uri=' + this.redirect_uri + '&response_type=' + this.response_type + '&state=' + this.state + '&scope=' + this.scope,"_blank","location=no,clearsessioncache=yes,clearcache=yes");
       browserRef.addEventListener("loadstart", (event:InAppBrowserEvent) => {
