@@ -10,7 +10,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @Injectable()
 export class SpotifyProvider {
-  token_tmp = 'BQBuno39DWojn0T57gOy9SU_6DFroa83-wVtVFtS8Qd3_VfhyMfqSCcNvZFWxx-Hl1C3X967-56Tx0zX-emmA8bdPp5pIKD1oD-vKiivcmOlvPcR0Lk88lAg8NYJ9nhYquRpuu7Ea_JDyUqVWkL1zG_RRQaqC8SLlyA0VTAHos33MCjF8urwqN39fzHfG5lNeI_A5rkcBKZhVO5Iu8A6VBzeQFDy22gsUFRQ7Hypi_lWjBiZV_x8aapuXm1cZJGDNKb7D_A76ubMk6Ln'
+  token_tmp = 'BQDNnEMVAceBAAV8uzIYa7mjP2WZ17yIBqjwHjjbZsKyXgYgTZPTjP8XZT_C031MbfzUJ-c9P7rh093ODIoeWjm27NUxVQzVFiI888P1VrIM6woD-cqkp-0J3_L6B2IB2Iwccs-HWOLu23SRV4xrfOXyzTSruDgqNWoOgTt41OQ6oO1fjtqn9Z5SZ1lLFoxKO1mvkd_Of7YLGQhuUmuNvhPlRy8zxjXP_aVvOG8oaZ4x2ciRjq6UTHwK0g-jienlYj5AxysV92S1th8q'
 
   client_id = 'd0612aeb3d0741cb9939c51b25c75394';
   response_type = 'token';

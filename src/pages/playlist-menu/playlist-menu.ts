@@ -4,6 +4,7 @@ import {AddArtistPage} from "../add-artist/add-artist";
 import {SongPage} from "../song/song";
 import {PlaylistPage} from "../playlist/playlist";
 import {GenrePage} from "../genre/genre";
+import {SearchArtistPage} from "../search-artist/search-artist";
 
 /**
  * Generated class for the PlaylistMenuPage page.
@@ -28,8 +29,8 @@ export class PlaylistMenuPage {
   }
 
 
-  pushToAddArtist(){
-    this.navCtrl.push(AddArtistPage)
+  pushToSearchArtist(){
+    this.navCtrl.push(SearchArtistPage)
   }
 
   pushToAddSong(){

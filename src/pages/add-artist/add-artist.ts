@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, Keyboard, NavController, NavParams} from 'ionic-angular';
 import {SpotifyProvider} from "../../providers/spotify/spotify";
 import {AlbumsPage} from "../albums/albums";
 import {RelatedArtistsPage} from "../related-artists/related-artists";
@@ -21,22 +21,25 @@ import {RelatedArtistsPage} from "../related-artists/related-artists";
 })
 export class AddArtistPage {
 
-  id = '23TFHmajVfBtlRx5MXqgoz' //id artista
+  id:string
   res: any
   uris: string[] = []           //array di canzoni passati a addToPlaylist
   albumsIds :string = ''
   numberRandom = 10             //numero di canzoni random
+  items:any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider, public keyboard:Keyboard) {
+    this.id = navParams.get('id')
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddArtistPage');
   }
 
-/*
-  Top Tracks Method
-*/
+
+  /*
+    Top Tracks Method
+  */
 
   addTopTracks(){
     this.spotifyProvider.getArtistTopTracks(this.id).subscribe(

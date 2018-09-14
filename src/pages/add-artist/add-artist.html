@@ -15,16 +15,7 @@
 
 <ion-content padding>
 
-  <ion-searchbar (ionInput)="search($event)"></ion-searchbar>
-  <div *ngIf="items?.length>0">
-    <ion-list *ngFor="let i of items">
-      <ion-item>
-        <h1>Artist:{{i.name}}</h1>
-        <ion-badge color="primary">Popularity:{{i.popularity}}</ion-badge>
-        <button ion-button color="secondary" (click)="searchAlbum(i.id,i.name)">Albums</button>
-      </ion-item>
-    </ion-list>
-  </div>
+
 
   <button ion-button (click)="addTopTracks()">Add Top 10 Tracks</button>
   <button ion-button (click)="getRandomSongs()">Add Random</button>
