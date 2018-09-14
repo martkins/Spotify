@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams , Keyboard} from 'ionic-angular';
 import {SpotifyProvider} from "../../providers/spotify/spotify";
+import {AddSongPage} from "../add-song/add-song";
 
 /**
  * Generated class for the SearchSongPage page.
@@ -16,70 +17,50 @@ import {SpotifyProvider} from "../../providers/spotify/spotify";
 })
 export class SearchSongPage {
 
-  id = '3JV7cTXVaOfKRhq17XyEoi' // id canzone
-  number = '30'                 // # canzoni visualizzate
+  id:string // id canzone
   res:any
-  allTracks = []                // tracce restituite da API
+  items:any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
-    this.getSongsList();
+  constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider, public keyboard:Keyboard) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchSongPage');
   }
 
-  getSongsList(){
-    this.spotifyProvider.getRaccomandatedSongs(this.id,this.number).subscribe(
-      data=>{
-        this.res = data
-        console.log(this.res)
-        let index = -1
-        for (let t of this.res.tracks){
-          index = index +1
-          this.allTracks[index] = new track(t.name,
-            t.album.images[0].url,
-            t.artists[0].name,
-            t.uri)
-        }
-        console.log(this.allTracks[0].img)
-
-
-      },err=>{
-        console.log(err)
-      }
-    )
+  pushToAddSong(){
+    this.navCtrl.push(AddSongPage,{
+      id:this.id
+    })
   }
 
-  addTrackToPlaylist(track){  //aggiungere traccia singola
-    let uri = []
-    uri.push(track)
-    this.spotifyProvider.addTracksToPlaylist(uri).subscribe(
+  chooseSong(id){
+    this.id = id
+    this.keyboard.close()
+    this.pushToAddSong()
+  }
+
+  search(event:any){
+    let value = event.target.value;
+    console.log(value);
+    this.spotifyProvider.searchSong(value).subscribe(
       data=>{
         console.log(data)
-      },err=>{
-        console.log(err)
+        //this.items = data.artists.items;
+        this.res = data;
+        this.items = this.res.tracks.items;
+        console.log(this.items);
+      },
+      error=>{
+        console.log(error);
       }
     )
   }
 
-  addTracksToPlaylist(tracks){  //aggiungere più tracce insieme
-    this.spotifyProvider.addTracksToPlaylist(tracks).subscribe(
-      data=>{
-        console.log(data)
-      },err=>{
-        console.log(err)
-      }
-    )
-  }
+
+
 
 }
 
-class track {
-  constructor(
-    public name: string,
-    public img: any,
-    public artist: string,
-    public uri: string) { }
-}
+
 

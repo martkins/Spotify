@@ -17,7 +17,7 @@ import {AddArtistPage} from "../add-artist/add-artist";
 })
 export class SearchArtistPage {
 
-  id = '23TFHmajVfBtlRx5MXqgoz' //id artista
+  id:string //id artista
   res: any
   items:any
 
@@ -38,6 +38,7 @@ export class SearchArtistPage {
     console.log(value);
     this.spotifyProvider.searchArtists(value).subscribe(
       data=>{
+        console.log(data)
         //this.items = data.artists.items;
         this.res = data;
         this.items = this.res.artists.items;
