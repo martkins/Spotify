@@ -136,7 +136,7 @@ export class HomePage {
         let alert = this.alertCtrl.create({
           title: 'Login non effettuato',
           subTitle: 'Devi fare login su Spotify!',
-          buttons: ['Ok']
+          buttons: ['Okplay']
         });
         alert.present();
         this.app.getRootNav().setRoot(HomeLoginPage)

@@ -23,9 +23,9 @@ import {PlaylistMenuPage} from "../playlist-menu/playlist-menu";
 })
 export class AddPlaylistPage {
 
-  name = 'Prova Playlist'
-  description = 'Prova'
-  isPublic = false
+  private name:string;
+  description:string;
+  isPublic:boolean = false;
   res : any
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
   }
@@ -51,20 +51,5 @@ export class AddPlaylistPage {
       }
     )
   }
-
-  pushToAddArtist(){
-    this.navCtrl.push(AddArtistPage)
-  }
-
-  pushToAddSong(){
-    this.navCtrl.push(SongPage)
-  }
-
-  pushToPlaylists(){
-    this.navCtrl.push(PlaylistPage)
-  }
-
-  pushToAddGenre(){
-    this.navCtrl.push(GenrePage)
-  }
+  
 }
