@@ -1,8 +1,9 @@
 import { Component,  ViewChildren, QueryList} from '@angular/core';
-import { NavController , Slides} from 'ionic-angular';
+import { NavController , Slides, App, AlertController} from 'ionic-angular';
 import { SpotifyProvider} from "../../providers/spotify/spotify";
 import {ArtistAlbumsPage} from "../artist-albums/artist-albums";
 import {LyricsPage} from "../lyrics/lyrics";
+import { HomeLoginPage } from '../home-login/home-login';
 
 @Component({
   selector: 'page-home',
@@ -18,17 +19,22 @@ export class HomePage {
   private followedPlaylists = []
   private range = (N) => Array.from({length: N}, (v, k) => k+1) ;
   private numPlaylists: any;
+  private notLoggedIn: boolean;
   @ViewChildren(Slides)  slides: QueryList<Slides>;
 
-  constructor(public navCtrl: NavController, public spotifyProvider:SpotifyProvider) {
+  constructor(public navCtrl: NavController, public spotifyProvider:SpotifyProvider, private app:App,
+    private alertCtrl: AlertController) {
 
   }
 
   ionViewWillEnter(){
-    this.getUserId()
     this.showOwnedPlaylist()
     this.showFollowedPlaylist()
+  }
 
+  ionViewDidEnter(){
+    console.log('tuma2')
+    this.getUserId()
   }
 
   search(event:any){
@@ -48,7 +54,7 @@ export class HomePage {
     )
   }
 
-  searchAlbums(id:string,name:string){
+  searchAlbums(id:string,name:string){this.app.getRootNav().setRoot(HomeLoginPage);
     this.navCtrl.push(ArtistAlbumsPage,{
       id:id,
       name:name
@@ -126,7 +132,14 @@ export class HomePage {
         this.resp= data
         this.spotifyProvider.userId = this.resp.id
       },err =>{
-        console.log(err)
+        console.log('tuma')
+        let alert = this.alertCtrl.create({
+          title: 'Login non effettuato',
+          subTitle: 'Devi fare login su Spotify!',
+          buttons: ['Ok']
+        });
+        alert.present();
+        this.app.getRootNav().setRoot(HomeLoginPage)
       }
     )
   }
