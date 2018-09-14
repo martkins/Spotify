@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {SpotifyProvider} from "../../providers/spotify/spotify";
+import {AddTopTracksPage} from "../add-top-tracks/add-top-tracks";
+import {SearchSongPage} from "../search-song/search-song";
 
 /**
  * Generated class for the SongPage page.
@@ -17,11 +19,7 @@ import {SpotifyProvider} from "../../providers/spotify/spotify";
 export class SongPage {
 
 
-  id = '3JV7cTXVaOfKRhq17XyEoi' // id canzone
-  number = '30'                 // # canzoni visualizzate
-  term = "short_term"                // periodo top tracks
-  res:any
-  allTracks = []                // tracce restituite da API
+
 
 
   //TODO: Mettere opzione per avere le canzoni più ascoltate (short,medium,long term) invece che canzoni simili a una canzone cercata
@@ -34,7 +32,6 @@ export class SongPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
-    this.getSongsList();
 
   }
 
@@ -43,72 +40,19 @@ export class SongPage {
 
   }
 
-  getSongsList(){
-    this.spotifyProvider.getRaccomandatedSongs(this.id,this.number).subscribe(
-      data=>{
-        this.res = data
-        console.log(this.res)
-        let index = -1
-        for (let t of this.res.tracks){
-          index = index +1
-          this.allTracks[index] = new track(t.name,
-            t.album.images[0].url,
-            t.artists[0].name,
-            t.uri)
-        }
-        console.log(this.allTracks[0].img)
-
-
-      },err=>{
-        console.log(err)
-      }
-    )
+  pushToAddTopTracks(){
+    this.navCtrl.push(AddTopTracksPage)
   }
 
-  addTopTracks(){
-    this.spotifyProvider.getTopTracks(this.term).subscribe(
-      data=>{
-        this.res = data;
-        let uris = []
-        for (let t of this.res.items){
-          uris.push(t.uri)
-        }
-        console.log(uris)
-        this.addTracksToPlaylist(uris)
-      },err=>{
-        console.log(err)
-      }
-    )
-
-  }
-  addTrackToPlaylist(track){  //aggiungere traccia singola
-    let uri = []
-    uri.push(track)
-    this.spotifyProvider.addTracksToPlaylist(uri).subscribe(
-      data=>{
-        console.log(data)
-      },err=>{
-        console.log(err)
-      }
-    )
-  }
-
-  addTracksToPlaylist(tracks){  //aggiungere più tracce insieme
-    this.spotifyProvider.addTracksToPlaylist(tracks).subscribe(
-      data=>{
-        console.log(data)
-      },err=>{
-        console.log(err)
-      }
-    )
+  pushToSearchSong(){
+    this.navCtrl.push(SearchSongPage)
   }
 
 
-}
-class track {
-  constructor(
-    public name: string,
-    public img: any,
-    public artist: string,
-    public uri: string) { }
+
+
+
+
+
+
 }
