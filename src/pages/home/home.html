@@ -16,7 +16,8 @@
   <h3>Le tue playlist</h3>
 
   <div class="slidesWrapper">
-    <ion-slides class="slides" slidesPerView = 2 centeredSlides = true spaceBetween = 6 zoom = true >
+
+    <ion-slides class="slides" slidesPerView = 2 centeredSlides = true spaceBetween = -16 zoom = true 
       <ion-slide  *ngFor="let playlist of ownedPlaylists">
         <img class="image" style="width: 15rem; height: auto;" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
         <h3 class="name">{{playlist.name}}</h3>
@@ -28,7 +29,7 @@
   <h3>Le playlist che segui</h3>
 
   <div class="slidesWrapper">
-    <ion-slides class="slides" slidesPerView = 3.5 centeredSlides = true spaceBetween = -16 zoom = true>
+    <ion-slides class="slides" slidesPerView = 2 centeredSlides = true spaceBetween = -16 zoom = true>
       <ion-slide *ngFor="let playlist of followedPlaylists">
         <img class="image"  style="width: 80%; height: 80%;" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
         <h3 class="name">{{playlist.name}}</h3>
