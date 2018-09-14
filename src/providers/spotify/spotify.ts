@@ -31,7 +31,7 @@ export class SpotifyProvider {
   requestHeader:any;
   userId = ''
   playlistId = ''
-  tokenAlbe:any = 'BQDH1KxIbyjmYJFS7pXzTJWf1clmPwiVexc0vGR7JIYFP5y0BieN4JtDoWUwOTe7_ScmWgs-7SKVWwjUWyMZJhRpt8zoM2efPVxZzYhQH0odzfEK065kIhaIQf84R_h8C0l7ImNyl1p58450My1g4wiLcL3FUzo_ordNaAX-NOOIa0mX-5ZCQQmT2Ixlt5OfNudDyn9C3QPxd2zPtR1GoDOriCa_fq3guePYkqRtinID6fy-vL2ZF8oBRgQkKC51UKmhixRD1cSoN5zf09KfcXAEBzCo5Q&token_type=Bearer&expires_in=3600&state=123'
+  tokenAlbe:any = 'BQACSc8fxQNVMx1I8woOdYrhAt2bb0k67OPYfv0pc6SpCMzheUNaQI3nrwSBDyNIUSwlRqOcl0Gm4o8togmjVtOM32TKS5bQyy7GPTGyl1bWZYgh2TF3FzezsARjUYzMn56qOth3PwgwyWrCr-it98xniBfrmNzYKYVQ0UlbxGuG-8C1qwUeL1a6MOIzlrJLyTYshCA2aZo11h72ixgzZNldOpKGp3VJ_zvRb5l1nt8Eqlmd24Vsk1hwVzKEUGI9LIwW9g5sh4K2K9yQXDIBeUHVyt-hrA&token_type=Bearer&expires_in=3600&state=123'
   userLoggedIn: boolean = false;
 
   private baseUrl:string = "https://api.spotify.com/v1";
