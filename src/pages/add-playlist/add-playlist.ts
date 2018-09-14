@@ -24,9 +24,9 @@ import {SearchArtistPage} from "../search-artist/search-artist";
 })
 export class AddPlaylistPage {
 
-  name = 'Prova Playlist'
-  description = 'Prova'
-  isPublic = false
+  private name:string;
+  description:string;
+  isPublic:boolean = false;
   res : any
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
   }
@@ -68,4 +68,5 @@ export class AddPlaylistPage {
   pushToAddGenre(){
     this.navCtrl.push(GenrePage)
   }
+
 }
