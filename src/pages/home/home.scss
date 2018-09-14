@@ -9,8 +9,8 @@ h3 {
 }
 
 .slides {
-  // height: 400px;
-  // position: relative;
+  height: 400px;
+  position: relative;
   text-align: center;
   color: black;
   background-color: white;
@@ -20,12 +20,16 @@ h3 {
 .image{
   // position: relative;
   // text-align: center;
-  height: 30px;
+  height: 80%;
   width: 80%;
 }
 
 .name {
   text-align: center;
+  width:100px;
+  overflow:hidden;
+  height:50px;
+  line-height:50px;
 }
 
 .subname {
