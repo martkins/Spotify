@@ -37,10 +37,7 @@ export class RelatedArtistsPage {
         this.res = data
         for (let artist of this.res.artists){
           this.artists.push(artist)
-          console.log(artist.images[0].url)
         }
-        console.log(this.res.artists)
-
       },err=>{
         console.log(err)
       }
