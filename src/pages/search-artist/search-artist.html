@@ -19,8 +19,12 @@
   <div *ngIf="items?.length>0">
     <ion-list *ngFor="let i of items">
       <ion-item>
+        <ion-thumbnail *ngIf="i.images?.length>0" item-start>
+          <img src="{{i.images[0].url}}">
+        </ion-thumbnail>
         <h1 (click)="chooseArtist(i.id)">{{i.name}}</h1>
-        <ion-badge color="primary">Popularity:{{i.popularity}}</ion-badge>
+        <ion-badge  color="primary">Followers:{{i.followers.total}}</ion-badge>
+        <ion-badge  color="secondary">Popularity:{{i.popularity}}</ion-badge>
       </ion-item>
     </ion-list>
   </div>

@@ -10,6 +10,13 @@
 
 
 <ion-content padding>
+<!--
+    Lasciamo questi bottoni qua per debug veloce senza bisogno tutte le volte di creare una playlist
+-->
+  <button ion-button (click)="pushToSearchArtist()">Artista</button>
+  <button ion-button (click)="pushToAddSong()">Canzone</button>
+  <button ion-button (click)="pushToPlaylists()">Playlist</button>
+  <button ion-button (click)="pushToAddGenre()">Genere</button>
 
   <ion-item>
       <ion-label floating>Nome playlist</ion-label>
@@ -23,9 +30,16 @@
       <ion-label>Vuoi renderla pubblica?</ion-label>
       <ion-toggle [(ngModel)]="isPublic"></ion-toggle>
   </ion-item>
+<<<<<<< HEAD
     
   <div class="buttonWrapper">
     <button ion-button (click)="pushToPlaylistMenu()">Crea Playlist</button>
   </div>
+=======
+
+
+  <button ion-button class="button" (click)="pushToPlaylistMenu()">Crea Playlist</button>
+>>>>>>> ac375a78e1d5618c9c16c6612f497e0919ebe47e
+
 
 </ion-content>

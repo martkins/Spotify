@@ -15,18 +15,18 @@
 
 <ion-content padding>
 
-  <button ion-button (click)="addTracksToPlaylist()">Add All Tracks</button>
-
-
-  <ion-list *ngIf="allTracks?.length>0">
-    <ion-item *ngFor="let t of allTracks">
-      <ion-thumbnail item-start>
-        <img src="{{t.img}}">
-      </ion-thumbnail>
-      <h2>{{t.name}}</h2>
-      <p>{{t.artist}}</p>
-      <button ion-button clear item-end (click)="addTrackToPlaylist(t.uri)">Add To Playlist</button>
-    </ion-item>
-  </ion-list>
+  <ion-searchbar  (ionInput)="search($event)"></ion-searchbar>
+  <div *ngIf="items?.length>0">
+    <ion-list *ngFor="let i of items">
+      <ion-item>
+        <ion-thumbnail (click)="chooseSong(i.id)" *ngIf="i.album.images?.length>0" item-start>
+          <img src="{{i.album.images[0].url}}">
+        </ion-thumbnail>
+        <h1 (click)="chooseSong(i.id)">{{i.name}}</h1>
+        <ion-badge  color="primary">Artista:{{i.artists[0].name}}</ion-badge>
+        <ion-badge  color="secondary">Album:{{i.album.name}}</ion-badge>
+      </ion-item>
+    </ion-list>
+  </div>
 
 </ion-content>

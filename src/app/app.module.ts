@@ -33,6 +33,7 @@ import {PlaylistMenuPage} from "../pages/playlist-menu/playlist-menu";
 import {AddTopTracksPage} from "../pages/add-top-tracks/add-top-tracks";
 import {SearchSongPage} from "../pages/search-song/search-song";
 import {SearchArtistPage} from "../pages/search-artist/search-artist";
+import {AddSongPage} from "../pages/add-song/add-song";
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import {SearchArtistPage} from "../pages/search-artist/search-artist";
     AddTopTracksPage,
     SearchSongPage,
     SearchArtistPage,
+    AddSongPage,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +92,7 @@ import {SearchArtistPage} from "../pages/search-artist/search-artist";
     AddTopTracksPage,
     SearchSongPage,
     SearchArtistPage,
+    AddSongPage,
   ],
   providers: [
     StatusBar,

@@ -67,6 +67,12 @@ export class SpotifyProvider {
     })
   }
 
+  searchSong(name:string){
+    return this.http.get(this.searchUrl+name+'&type=track',{
+      headers:this.requestHeader
+    })
+  }
+
 
 
   searchAlbum(id:string){
