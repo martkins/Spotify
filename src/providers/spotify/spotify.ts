@@ -10,8 +10,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @Injectable()
 export class SpotifyProvider {
-  token_tmp = 'BQAIFLsnBWwOl3Geb7wT_R5zWWCYoPZteqfxF2nSZ4GxlyQsJABMSFACSCR4eIVy8eG0qeSc7VtEiLW_hqNQZqhn7OmPddl5ggCu4YH-z2WdrckkAuuyOOEj4a6ES_zqiPhg_wfXN06jOqs_wlWUpSKk1tW9eDv-oYjuECpV0kKFnMr2xJ9agE4M9vQDQh1RYI5X35uVKZNH1KJF_SN75_0V_lg0YSPbZLjryQp5B_l4_7bYt0ikXEVh_UKwjh0jRdKpwUCN8va5lW43_1NM7mM7WdyHdw&token_type=Bearer&expires_in=3600&state=123'
-
+  token_tmp = 'BQDm5c9fxyHiFNEpxQ2C7a8dcTeUsCMAWhh7Hh_uSuyrrPq1f4UkeMwHI_K-i1SfjkASMQNzswC20recpY9e-GMcZPBxDFyRgsClGBKUG9ScOLImeWw8K5IhfK4QvubmX1WOGb5Eh3bx9_-OpNN4nE5nNwqwb3pbi_S0aoY_AwJafyxQPLjROsOdmY2Q5BQnmS995QHr1veOubtwTvW63XX7-R8fYZ51n9Wk76BgnN_dZsk3g5SLNmOKrRuhbzAHr9hyam9Bog4IbYxBu6TSmEJsEq18Hg&token_type=Bearer&expires_in=3600&state=123'
+  
   client_id = 'd0612aeb3d0741cb9939c51b25c75394';
   response_type = 'token';
   redirect_uri = 'http://localhost:8100/';
@@ -63,12 +63,6 @@ export class SpotifyProvider {
 
   searchArtists(name:string){
     return this.http.get(this.searchUrl+name+'&type=artist',{
-      headers:this.requestHeader
-    })
-  }
-
-  searchSong(name:string){
-    return this.http.get(this.searchUrl+name+'&type=track',{
       headers:this.requestHeader
     })
   }
