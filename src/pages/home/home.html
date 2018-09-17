@@ -19,7 +19,7 @@
 
     <ion-slides class="slides" slidesPerView = 2 centeredSlides = true spaceBetween = 6 zoom = true >
       <ion-slide  *ngFor="let playlist of ownedPlaylists">
-        <img class="image" style="width: 15rem; height: auto;" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
+        <img (click)="pushToManagePlaylist( playlist)" class="image" style="width: 15rem; height: auto;" data-src="{{playlist.img}}">
         <h3 class="name">{{playlist.name}}</h3>
         <h6 class="subname">{{playlist.numTracks}} tracks</h6>
       </ion-slide>
@@ -31,7 +31,7 @@
   <div class="slidesWrapper">
     <ion-slides class="slides" slidesPerView = 2 centeredSlides = true spaceBetween = 6 zoom = true>
       <ion-slide *ngFor="let playlist of followedPlaylists">
-        <img class="image"  style="width: 15rem; height: auto;" data-src="{{playlist.img}}" (click)='reproducePlaylist(playlist.id)'>
+        <img (click)="pushToManagePlaylist(playlist.id)" class="image"  style="width: 15rem; height: auto;" data-src="{{playlist.img}}">
         <h3 class="name">{{playlist.name}}</h3>
         <h6 class="subname">{{playlist.numTracks}} tracks</h6>
       </ion-slide>

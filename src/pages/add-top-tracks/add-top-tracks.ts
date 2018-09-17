@@ -15,7 +15,6 @@ import {SpotifyProvider} from "../../providers/spotify/spotify";
   templateUrl: 'add-top-tracks.html',
 })
 export class AddTopTracksPage {
-  term = "short_term"                // periodo top tracks
   res:any
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
@@ -26,15 +25,14 @@ export class AddTopTracksPage {
   }
 
 
-  addTopTracks(){
-    this.spotifyProvider.getTopTracks(this.term).subscribe(
+  addTopTracks(term){
+    this.spotifyProvider.getTopTracks(term).subscribe(
       data=>{
         this.res = data;
         let uris = []
         for (let t of this.res.items){
           uris.push(t.uri)
         }
-        console.log(uris)
         this.addTracksToPlaylist(uris)
       },err=>{
         console.log(err)

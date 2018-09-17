@@ -10,8 +10,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @Injectable()
 export class SpotifyProvider {
-  token_tmp = 'BQD724L2YOx1dG_dz14bGYRtwJH0JMFqMKlZtVYk-Rh9ONEkIGsTVZU4tcAuNNiNOPRenMWvM8jHWMIPHw52Iovnqq2h19O92PEPEdxWRhVkCEqYI00-AaL06jowMq5bM_Ub9dmOm6QQ6_ozwzxjgSjv0NJ2tM_4rM6SAu5UIDjtpInf5OtztlbZcdQ3js2SQqHSQ2LYIqqqjsfgJ1B2ZzOQZXgswGFSy8zso9jMrG0yLXr7DP8fFo6YXE1OzRr_mQj33DaJdie6qrZurGcaBF6qpFvoPA&token_type=Bearer&expires_in=3600&state=123'
-  
+  token_tmp = 'BQBDZ_nRGecbB7rtouoYi3XM7GUbknOMukqYyakhfeHsCxlMGH6euHcgILwAdKSu3-mc7Aypamw9BOpmOY9I3HG9hK5O-gPNpCRzvUMI30ugiu1pdbmvr-9XaNUcT6GIzdguO75zxbQ_vgnNwP9X5Zw85C7RtNkJLc9g6DXt4w7P9mdim9pLPX4UGE4JzMQ6Joj3b9uZFuaFNnlVe1ZKCJvnlt1oF2YoO9KVicJHN7hs8fyx9bz_VEz0IvrHt_oR9gQkZHOPWWgjguoR'
+
   client_id = 'd0612aeb3d0741cb9939c51b25c75394';
   response_type = 'token';
   redirect_uri = 'http://localhost:8100/';
@@ -67,7 +67,11 @@ export class SpotifyProvider {
     })
   }
 
-
+  searchSong(name:string){
+    return this.http.get(this.searchUrl+name+'&type=track',{
+      headers:this.requestHeader
+    })
+  }
 
   searchAlbum(id:string){
     return this.http.get(this.albumUrl+id,{
