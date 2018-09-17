@@ -7,15 +7,30 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Playlist</ion-title>
+    <ion-title>Add Playlist</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <button ion-button (click)="pushToPlaylistOwned()">Aggiungi una tua playlist</button>
-  <button ion-button (click)="pushToPlaylistFollowed()">Aggiungi una playlist che segui</button>
-  <button ion-button (click)="pushToPlaylistSpotify()">Aggiungi una playlist di Spotify</button>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col class="card" (click)="pushToPlaylistOwned()">
+          Add one of your playlists
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="card" (click)="pushToPlaylistFollowed()">
+          Add one of your followed playlists
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="card" (click)="pushToPlaylistSpotify()">
+          Add one of Spotify playlists
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
 </ion-content>

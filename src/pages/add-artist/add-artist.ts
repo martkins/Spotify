@@ -22,6 +22,7 @@ import {RelatedArtistsPage} from "../related-artists/related-artists";
 export class AddArtistPage {
 
   id:string
+  artistName:string
   res: any
   uris: string[] = []           //array di canzoni passati a addToPlaylist
   albumsIds :string = ''
@@ -30,6 +31,7 @@ export class AddArtistPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider, public keyboard:Keyboard) {
     this.id = navParams.get('id')
+    this.artistName = navParams.get('artistName')
   }
 
   ionViewDidLoad() {

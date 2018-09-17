@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>relatedArtists</ion-title>
+    <ion-title>Related Artists</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,8 +18,8 @@
     <ion-list *ngFor="let a of artists">
       <ion-card (click)="addTopTracks(a.id)">
         <img *ngIf="a.images?.length>0" src="{{a.images[0].url}}"/>
-        <div class="card-title">{{a.name}}</div>
-        <div class="card-subtitle">Add 10 Top Tracks</div>
+        <div class="cardTitle">{{a.name}}</div>
+        <div class="cardSubtitle">Add 10 Top Tracks</div>
       </ion-card>
     </ion-list>
   </div>

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>albums</ion-title>
+    <ion-title>Albums</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,10 +19,11 @@
     <ion-list *ngFor="let a of albums">
       <ion-card (click)="add(a.id)">
         <img src="{{a.images[0].url}}"/>
-        <div class="card-title">{{a.name}}</div>
-        <div class="card-subtitle">{{a.artists[0].name}}</div>
+        <div class="cardTitle">{{a.name}}</div>
+        <!-- <div class="cardSubtitle">{{a.artists[0].name}}</div> -->
       </ion-card>
     </ion-list>
   </div>
 </ion-content>
 
+asd

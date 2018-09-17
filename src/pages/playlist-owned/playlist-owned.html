@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>PlaylistOwned</ion-title>
+    <ion-title>Add a playlist</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,8 +19,8 @@
       <ion-list *ngFor="let playlist of ownedPlaylists">
         <ion-card (click)="addAllTracks(playlist.id)">
           <img src="{{playlist.img}}"/>
-          <div class="card-title">{{playlist.name}}</div>
-          <div class="card-subtitle">{{playlist.numTracks}} brani</div>
+          <div class="cardTitle">{{playlist.name}}</div>
+          <div class="cardSubtitle">{{playlist.numTracks}} brani</div>
         </ion-card>
       </ion-list>
     </div>

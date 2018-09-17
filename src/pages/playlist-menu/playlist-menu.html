@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>PlaylistMenu</ion-title>
+    <ion-title>Playlist Menu</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,9 +15,25 @@
 
 <ion-content padding>
 
-  <button ion-button (click)="pushToSearchArtist()">Artista</button>
-  <button ion-button (click)="pushToAddSong()">Canzone</button>
-  <button ion-button (click)="pushToPlaylists()">Playlist</button>
-  <button ion-button (click)="pushToAddGenre()">Genere</button>
+  <h3>Choose what to add to your playlist</h3>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="card" (click)="pushToSearchArtist()">
+        Artist
+      </ion-col>
+      <ion-col class="card" (click)="pushToAddSong()">
+        Song
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="card" (click)="pushToPlaylists()">
+        Playlist
+      </ion-col>
+      <ion-col class="card" (click)="pushToAddGenre()">
+        Genre
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

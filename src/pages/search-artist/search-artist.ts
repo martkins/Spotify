@@ -18,6 +18,7 @@ import {AddArtistPage} from "../add-artist/add-artist";
 export class SearchArtistPage {
 
   id:string //id artista
+  artistName:string
   res: any
   items:any
 
@@ -28,8 +29,9 @@ export class SearchArtistPage {
     console.log('ionViewDidLoad SearchArtistPage');
   }
 
-  chooseArtist(id){
+  chooseArtist(id, name){
     this.id = id
+    this.artistName = name 
     this.keyboard.close()
     this.pushToAddArtist()
   }
@@ -52,7 +54,8 @@ export class SearchArtistPage {
 
   pushToAddArtist(){
     this.navCtrl.push(AddArtistPage,{
-      id:this.id
+      id:this.id,
+      artistName:this.artistName
     })
 }
 
