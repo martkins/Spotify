@@ -132,11 +132,10 @@ export class HomePage {
         this.resp= data
         this.spotifyProvider.userId = this.resp.id
       },err =>{
-        console.log('tuma')
         let alert = this.alertCtrl.create({
           title: 'Login non effettuato',
           subTitle: 'Devi fare login su Spotify!',
-          buttons: ['Okplay']
+          buttons: ['Ok']
         });
         alert.present();
         this.app.getRootNav().setRoot(HomeLoginPage)

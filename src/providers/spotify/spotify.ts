@@ -10,7 +10,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @Injectable()
 export class SpotifyProvider {
-  token_tmp = 'BQDNnEMVAceBAAV8uzIYa7mjP2WZ17yIBqjwHjjbZsKyXgYgTZPTjP8XZT_C031MbfzUJ-c9P7rh093ODIoeWjm27NUxVQzVFiI888P1VrIM6woD-cqkp-0J3_L6B2IB2Iwccs-HWOLu23SRV4xrfOXyzTSruDgqNWoOgTt41OQ6oO1fjtqn9Z5SZ1lLFoxKO1mvkd_Of7YLGQhuUmuNvhPlRy8zxjXP_aVvOG8oaZ4x2ciRjq6UTHwK0g-jienlYj5AxysV92S1th8q'
+  token_tmp = 'BQAIFLsnBWwOl3Geb7wT_R5zWWCYoPZteqfxF2nSZ4GxlyQsJABMSFACSCR4eIVy8eG0qeSc7VtEiLW_hqNQZqhn7OmPddl5ggCu4YH-z2WdrckkAuuyOOEj4a6ES_zqiPhg_wfXN06jOqs_wlWUpSKk1tW9eDv-oYjuECpV0kKFnMr2xJ9agE4M9vQDQh1RYI5X35uVKZNH1KJF_SN75_0V_lg0YSPbZLjryQp5B_l4_7bYt0ikXEVh_UKwjh0jRdKpwUCN8va5lW43_1NM7mM7WdyHdw&token_type=Bearer&expires_in=3600&state=123'
 
   client_id = 'd0612aeb3d0741cb9939c51b25c75394';
   response_type = 'token';
@@ -31,7 +31,6 @@ export class SpotifyProvider {
   requestHeader:any;
   userId = ''
   playlistId = ''
-  tokenAlbe:any = 'BQACSc8fxQNVMx1I8woOdYrhAt2bb0k67OPYfv0pc6SpCMzheUNaQI3nrwSBDyNIUSwlRqOcl0Gm4o8togmjVtOM32TKS5bQyy7GPTGyl1bWZYgh2TF3FzezsARjUYzMn56qOth3PwgwyWrCr-it98xniBfrmNzYKYVQ0UlbxGuG-8C1qwUeL1a6MOIzlrJLyTYshCA2aZo11h72ixgzZNldOpKGp3VJ_zvRb5l1nt8Eqlmd24Vsk1hwVzKEUGI9LIwW9g5sh4K2K9yQXDIBeUHVyt-hrA&token_type=Bearer&expires_in=3600&state=123'
   userLoggedIn: boolean = false;
 
   private baseUrl:string = "https://api.spotify.com/v1";

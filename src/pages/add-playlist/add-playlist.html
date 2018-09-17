@@ -19,12 +19,13 @@
       <ion-label floating>Descrizione playlist</ion-label>
       <ion-input type="text" [(ngModel)]="description"></ion-input>
   </ion-item>
-  <ion-item>
+  <ion-item class="toggleLabel">
       <ion-label>Vuoi renderla pubblica?</ion-label>
       <ion-toggle [(ngModel)]="isPublic"></ion-toggle>
   </ion-item>
     
-
-  <button ion-button class="button" (click)="pushToPlaylistMenu()">Crea Playlist</button>
+  <div class="buttonWrapper">
+    <button ion-button (click)="pushToPlaylistMenu()">Crea Playlist</button>
+  </div>
 
 </ion-content>
