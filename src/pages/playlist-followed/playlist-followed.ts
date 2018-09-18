@@ -59,7 +59,6 @@ export class PlaylistFollowedPage {
     this.spotifyProvider.getPlaylistsTracks(idPlaylist).subscribe(
       data=>{
         this.res = data
-        console.log(this.res)
         let uris: string[] = []
         for (let item of this.res.items){
           uris.push(item.track.uri)

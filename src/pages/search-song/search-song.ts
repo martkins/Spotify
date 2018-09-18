@@ -19,6 +19,7 @@ export class SearchSongPage {
 
   id:string // id canzone
   res:any
+  uri:any
   items:any
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider, public keyboard:Keyboard) {
@@ -30,12 +31,14 @@ export class SearchSongPage {
 
   pushToAddSong(){
     this.navCtrl.push(AddSongPage,{
-      id:this.id
+      id:this.id,
+      uri:this.uri
     })
   }
 
-  chooseSong(id){
+  chooseSong(id,uri){
     this.id = id
+    this.uri = uri
     this.keyboard.close()
     this.pushToAddSong()
   }
