@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {SpotifyProvider} from "../../providers/spotify/spotify";
+import {PlaylistMenuPage} from "../playlist-menu/playlist-menu";
 
 /**
  * Generated class for the ManagePlaylistPage page.
@@ -24,6 +25,7 @@ export class ManagePlaylistPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
     this.playlist = navParams.get('playlist')
+    this.spotifyProvider.playlistId = this.playlist.id
     this.getTracks(this.playlist.id)
   }
 
@@ -32,6 +34,20 @@ export class ManagePlaylistPage {
 
   }
 
+
+  pushToPlaylistMenu(){
+    this.navCtrl.push(PlaylistMenuPage)
+  }
+
+  deleteTrack(uri){
+    this.spotifyProvider.removeFromPlaylist(uri).subscribe(
+      data=>{
+        console.log(data)
+      },err=>(
+        console.log(err)
+      )
+    )
+  }
 
   renamePlaylist(idPlaylist,newName,isPublic){
     this.spotifyProvider.changePlaylistDetails(idPlaylist,newName,isPublic).subscribe(

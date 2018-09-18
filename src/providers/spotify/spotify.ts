@@ -335,6 +335,19 @@ API for song's lyrics
     })
   }
 
+  removeFromPlaylist(track){
+    let options= {
+      headers:this.requestHeader,
+      body: {
+        'tracks':[{
+          'uri':track
+        }
+        ]
+      }
+    }
+    return this.http.delete(this.baseUrl+'/playlists/'+this.playlistId+'/tracks',options)
+  }
+
 
 /*
   API for artists

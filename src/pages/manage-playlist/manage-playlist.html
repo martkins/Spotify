@@ -15,12 +15,15 @@
 
 <ion-content padding>
   <button ion-button (click)="renamePlaylist(playlist.id,newName,isPublic)">Change Details</button>
+  <button ion-button (click)="pushToPlaylistMenu()">Add Tracks</button>
+
 
   <ion-card>
   <img src="{{playlist.img}}">
-</ion-card>
+  </ion-card>
   <ion-item  *ngFor="let t of allTracks">
     <h2>{{t.name}}</h2>
     <p>{{t.artist}}</p>
+    <button ion-button clear item-end (click)="deleteTrack(t.uri)">Remove</button>
   </ion-item>
 </ion-content>
