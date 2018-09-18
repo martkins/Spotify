@@ -15,9 +15,23 @@
 
 <ion-content padding>
 
-  <button ion-button (click)="addTopTracks('short_term')">Short Term</button>
-  <button ion-button (click)="addTopTracks('medium_term')">Medium Term</button>
-  <button ion-button (click)="addTopTracks('long_term')">Long Term</button>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="card" (click)="addTopTracks('short_term')">
+          Short Term
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="card" (click)="addTopTracks('medium_term')">
+          Medium Term
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="card" (click)="addTopTracks('long_term')">
+          Long Term
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
 
 </ion-content>

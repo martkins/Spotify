@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import {SpotifyProvider} from "../../providers/spotify/spotify";
 
 /**
@@ -20,7 +20,7 @@ export class RelatedArtistsPage {
   res:any
   artists: string[] = []
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private spotifyProvider:SpotifyProvider) {
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams,private spotifyProvider:SpotifyProvider) {
     this.id = navParams.get('id')
     this.getArtists()
 
@@ -45,18 +45,38 @@ export class RelatedArtistsPage {
   }
 
   addTopTracks(idArtist){
-    this.spotifyProvider.getArtistTopTracks(idArtist).subscribe(
-      data=>{
-        this.res = data
-        let uris: string[] = []
-        for (let track of this.res.tracks) {
-          uris.push(track.uri)
+    let alert = this.alertCtrl.create({
+      title: 'Are you sure?',
+      message: 'Add this to your playlist?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            this.spotifyProvider.getArtistTopTracks(idArtist).subscribe(
+              data=>{
+                this.res = data
+                let uris: string[] = []
+                for (let track of this.res.tracks) {
+                  uris.push(track.uri)
+                }
+                this.addToPlaylist(uris)
+              },err=>{
+                console.log(err)
+              }
+            )            
+            console.log('Agree clicked');
+          }
         }
-        this.addToPlaylist(uris)
-      },err=>{
-        console.log(err)
-      }
-    )
+      ]
+    });
+    alert.present()
+    
   }
 
   addToPlaylist(tracks){

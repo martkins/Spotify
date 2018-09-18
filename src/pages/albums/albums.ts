@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import {SpotifyProvider} from "../../providers/spotify/spotify";
 
 /**
@@ -21,7 +21,7 @@ export class AlbumsPage {
   albums : string[] = []
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
     this.id = navParams.get('id')
     this.getAlbums()
   }
@@ -48,18 +48,37 @@ export class AlbumsPage {
   }
 
   add(albumId){
-    console.log(albumId)
-    this.spotifyProvider.getAlbumsTracks(albumId).subscribe(
-      data=>{
-        this.res = data
-        let allTracks: string[] = []
-        for (let track of this.res.albums[0].tracks.items){
-          allTracks.push(track.uri)
+    let alert = this.alertCtrl.create({
+      title: 'Are you sure?',
+      message: 'Add this to your playlist?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            console.log(albumId)
+            this.spotifyProvider.getAlbumsTracks(albumId).subscribe(
+              data=>{
+                this.res = data
+                let allTracks: string[] = []
+                for (let track of this.res.albums[0].tracks.items){
+                  allTracks.push(track.uri)
+                }
+                console.log(allTracks)
+                this.addToPlaylist(allTracks)
+              }
+            )
+            console.log('Agree clicked');
+          }
         }
-        console.log(allTracks)
-        this.addToPlaylist(allTracks)
-      }
-    )
+      ]
+    });
+    alert.present()
   }
 
   addToPlaylist(tracks){

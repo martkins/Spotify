@@ -119,8 +119,8 @@ export class HomePage {
         this.spotifyProvider.userId = this.resp.id
       },err =>{
         let alert = this.alertCtrl.create({
-          title: 'Login non effettuato',
-          subTitle: 'Devi fare login su Spotify!',
+          title: 'You are not logged in',
+          subTitle: 'Login on Spotify!',
           buttons: ['Ok']
         });
         alert.present();

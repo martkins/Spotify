@@ -7,10 +7,30 @@ import { TabsPage } from '../../pages/tabs/tabs';
 import {Platform} from "ionic-angular";
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+// let alert = this.alertCtrl.create({
+//   title: 'Are you sure?',
+//   message: 'Add this to your playlist?',
+//   buttons: [
+//     {
+//       text: 'No',
+//       handler: () => {
+//         console.log('Disagree clicked');
+//       }
+//     },
+//     {
+//       text: 'Yes',
+//       handler: () => {
+        
+//         console.log('Agree clicked');
+//       }
+//     }
+//   ]
+// });
+// alert.present()
 
 @Injectable()
 export class SpotifyProvider {
-  token_tmp = 'BQBDZ_nRGecbB7rtouoYi3XM7GUbknOMukqYyakhfeHsCxlMGH6euHcgILwAdKSu3-mc7Aypamw9BOpmOY9I3HG9hK5O-gPNpCRzvUMI30ugiu1pdbmvr-9XaNUcT6GIzdguO75zxbQ_vgnNwP9X5Zw85C7RtNkJLc9g6DXt4w7P9mdim9pLPX4UGE4JzMQ6Joj3b9uZFuaFNnlVe1ZKCJvnlt1oF2YoO9KVicJHN7hs8fyx9bz_VEz0IvrHt_oR9gQkZHOPWWgjguoR'
+  token_tmp = 'BQDAx-Fhv669GQ1XkC7XfVdNWpl9Ro9hixtmxWYVPFlO1MpkzwzECDgbhbXFdcVtZ0UHe5S2ZTLurduzu0GEvCd9DSuKDcnxYy0yAeZA7y4ZtYnM5R1dfnCIrlnKgVOj7xfI7T3m6cOjuTINPK-Y-Zeh4MwARbnr0q1i59D813KRHzMSyqQM1gLKjUMVityxN4tl1RK1INyuHiN4KxLqvov-zqKT3EBXFnbFyRizs9ITj_1i-MMtuhZOkVaRzkn7JlMGfnogSRHzw24yGPfUVj3byjEq5w&token_type=Bearer&expires_in=3600&state=123'
 
   client_id = 'd0612aeb3d0741cb9939c51b25c75394';
   response_type = 'token';
