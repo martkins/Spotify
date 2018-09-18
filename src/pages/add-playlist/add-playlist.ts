@@ -36,11 +36,7 @@ export class AddPlaylistPage {
   }
 
   pushToPlaylistMenu(){
-<<<<<<< HEAD
     // this.addPlaylist() 
-=======
-    this.addPlaylist()
->>>>>>> 86230b990c1f7cf3b532d99198a35ad298126daf
     this.navCtrl.push(PlaylistMenuPage)
   }
 

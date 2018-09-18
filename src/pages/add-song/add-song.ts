@@ -20,10 +20,11 @@ export class AddSongPage {
   res:any
   allTracks = []      // tracce restituite da API
   uri:any
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
     this.id = navParams.get('id')
     this.uri = navParams.get('uri')
-    this.addTrackToPlaylist(this.uri)
+    this.addTrackToPlaylist(this.uri, 'add-circle')
     this.getSongsList();
   }
 
@@ -42,6 +43,7 @@ export class AddSongPage {
           this.allTracks[index] = new Track(t.name,
             t.album.images[0].url,
             t.artists[0].name,
+            'add-circle',
             t.uri)
         }
 
@@ -52,22 +54,27 @@ export class AddSongPage {
     )
   }
 
-  addTrackToPlaylist(track){  //aggiungere traccia singola
-    let uri = []
-    uri.push(track)
-    this.spotifyProvider.addTracksToPlaylist(uri).subscribe(
-      data=>{
-        console.log(data)
-      },err=>{
-        console.log(err)
-      }
-    )
+  addTrackToPlaylist(track, t){  //aggiungere traccia singola
+    if (t.icon == 'add-circle'){
+      t.icon = 'checkmark-circle'
+      let uri = []
+      uri.push(track)
+      this.spotifyProvider.addTracksToPlaylist(uri).subscribe(
+        data=>{
+          console.log(data)
+        },err=>{
+          console.log(err)
+        }
+      )
+    }
   }
 
   addTracksToPlaylist(tracks){  //aggiungere più tracce insieme
     let uris = []
-    for (let t of this.allTracks)
+    for (let t of this.allTracks){
+      t.icon = 'checkmark-circle'
       uris.push(t.uri)
+    }
     console.log(uris)
     this.spotifyProvider.addTracksToPlaylist(uris).subscribe(
       data=>{
@@ -84,6 +91,7 @@ class Track {
     public name: string,
     public img: any,
     public artist: string,
+    public icon:string,
     public uri: string) { }
 }
 

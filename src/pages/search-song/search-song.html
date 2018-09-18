@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>SearchSong</ion-title>
+    <ion-title>Search Track</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,10 +19,10 @@
   <div *ngIf="items?.length>0">
     <ion-list *ngFor="let i of items">
       <ion-item>
-        <ion-thumbnail (click)="chooseSong(i.id,i.uri)" *ngIf="i.album.images?.length>0" item-start>
+        <ion-thumbnail (click)="chooseSong(i.id, i.uri)" *ngIf="i.album.images?.length>0" item-start>
           <img src="{{i.album.images[0].url}}">
         </ion-thumbnail>
-        <h1 (click)="chooseSong(i.id)">{{i.name}}</h1>
+        <h1 (click)="chooseSong(i.id, i.uri)">{{i.name}}</h1>
         <ion-badge  color="primary">Artista:{{i.artists[0].name}}</ion-badge>
         <ion-badge  color="secondary">Album:{{i.album.name}}</ion-badge>
       </ion-item>

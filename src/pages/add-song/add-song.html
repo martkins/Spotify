@@ -7,15 +7,17 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>addSong</ion-title>
+    <ion-title>Add tracks</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <button ion-button (click)="addTracksToPlaylist()">Add All Tracks</button>
-
+  
+  <div class="buttonWrapper">
+    <button ion-button (click)="addTracksToPlaylist()">Add All Tracks</button>
+  </div>
 
   <ion-list *ngIf="allTracks?.length>0">
     <ion-item *ngFor="let t of allTracks">
@@ -24,7 +26,9 @@
       </ion-thumbnail>
       <h2>{{t.name}}</h2>
       <p>{{t.artist}}</p>
-      <button ion-button clear item-end (click)="addTrackToPlaylist(t.uri)">Add To Playlist</button>
+      <button ion-button clear item-end (click)="addTrackToPlaylist(t.uri, t)">
+        <ion-icon class="icon" name='{{t.icon}}'></ion-icon>       
+      </button>
     </ion-item>
   </ion-list>
 </ion-content>
