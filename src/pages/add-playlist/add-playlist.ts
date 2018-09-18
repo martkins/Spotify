@@ -36,7 +36,7 @@ export class AddPlaylistPage {
   }
 
   pushToPlaylistMenu(){
-    // this.addPlaylist()
+    //this.addPlaylist()
     this.navCtrl.push(PlaylistMenuPage)
   }
 

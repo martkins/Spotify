@@ -37,7 +37,7 @@ export class AddSongPage {
         let index = -1
         for (let t of this.res.tracks){
           index = index +1
-          this.allTracks[index] = new track(t.name,
+          this.allTracks[index] = new Track(t.name,
             t.album.images[0].url,
             t.artists[0].name,
             t.uri)
@@ -62,8 +62,12 @@ export class AddSongPage {
     )
   }
 
-  addTracksToPlaylist(tracks){  //aggiungere più tracce insieme TODO
-    this.spotifyProvider.addTracksToPlaylist(tracks).subscribe(
+  addTracksToPlaylist(tracks){  //aggiungere più tracce insieme
+    let uris = []
+    for (let t of this.allTracks)
+      uris.push(t.uri)
+    console.log(uris)
+    this.spotifyProvider.addTracksToPlaylist(uris).subscribe(
       data=>{
         console.log(data)
       },err=>{
@@ -73,7 +77,7 @@ export class AddSongPage {
   }
 }
 
-class track {
+class Track {
   constructor(
     public name: string,
     public img: any,

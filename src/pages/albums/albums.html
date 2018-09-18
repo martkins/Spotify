@@ -18,7 +18,7 @@
   <div *ngIf="albums?.length>0">
     <ion-list *ngFor="let a of albums">
       <ion-card (click)="add(a.id)">
-        <img src="{{a.images[0].url}}"/>
+        <img *ngIf="a.images?.length>0" src="{{a.images[0].url}}"/>
         <div class="cardTitle">{{a.name}}</div>
         <!-- <div class="cardSubtitle">{{a.artists[0].name}}</div> -->
       </ion-card>

@@ -40,13 +40,13 @@ export class PlaylistOwnedPage {
         if (this.res.items[index].owner.id.toString() == this.spotifyProvider.userId.toString()){
           index2 = index2+1
           if (this.res.items[index].images[0] == null) {
-            this.ownedPlaylists[index2] = new playlist(this.res.items[index].name,
+            this.ownedPlaylists[index2] = new Playlist(this.res.items[index].name,
               'http://www.thetravelboss.com/images/latest-img1.jpg',
               this.res.items[index].tracks.total,
               this.res.items[index].id)
           }
           else {
-            this.ownedPlaylists[index2] = new playlist(this.res.items[index].name,
+            this.ownedPlaylists[index2] = new Playlist(this.res.items[index].name,
               this.res.items[index].images[0].url,
               this.res.items[index].tracks.total,
               this.res.items[index].id)
@@ -86,7 +86,7 @@ export class PlaylistOwnedPage {
   }
 }
 
-class playlist {
+class Playlist {
   constructor(
     public name: string,
     public img: any,

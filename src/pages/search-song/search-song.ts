@@ -40,24 +40,23 @@ export class SearchSongPage {
     this.pushToAddSong()
   }
 
-  // Commento perchè mi dà errore, mi dice che searchSong non esite su SpotifyProvider
 
-  // search(event:any){
-  //   let value = event.target.value;
-  //   console.log(value);
-  //   this.spotifyProvider.searchSong(value).subscribe(
-  //     data=>{
-  //       console.log(data)
-  //       //this.items = data.artists.items;
-  //       this.res = data;
-  //       this.items = this.res.tracks.items;
-  //       console.log(this.items);
-  //     },
-  //     error=>{
-  //       console.log(error);
-  //     }
-  //   )
-  // }
+  search(event:any){
+    let value = event.target.value;
+    console.log(value);
+    this.spotifyProvider.searchSong(value).subscribe(
+      data=>{
+        console.log(data)
+        //this.items = data.artists.items;
+        this.res = data;
+        this.items = this.res.tracks.items;
+        console.log(this.items);
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+  }
 
 
 

@@ -4,6 +4,7 @@ import { SpotifyProvider} from "../../providers/spotify/spotify";
 import {ArtistAlbumsPage} from "../artist-albums/artist-albums";
 import {LyricsPage} from "../lyrics/lyrics";
 import { HomeLoginPage } from '../home-login/home-login';
+import {ManagePlaylistPage} from "../manage-playlist/manage-playlist";
 
 @Component({
   selector: 'page-home',
@@ -33,31 +34,12 @@ export class HomePage {
   }
 
   ionViewDidEnter(){
-    console.log('tuma2')
     this.getUserId()
   }
 
-  search(event:any){
-    let value = event.target.value;
-    console.log(value);
-    this.spotifyProvider.searchArtists(value).subscribe(
-      data=>{
-        //this.items = data.artists.items;
-        this.resp = data;
-        this.items = this.resp.artists.items;
-        console.log(this.items);
-
-      },
-      error=>{
-        console.log(error);
-      }
-    )
-  }
-
-  searchAlbums(id:string,name:string){this.app.getRootNav().setRoot(HomeLoginPage);
-    this.navCtrl.push(ArtistAlbumsPage,{
-      id:id,
-      name:name
+  pushToManagePlaylist(playlist){
+    this.navCtrl.push(ManagePlaylistPage,{
+      playlist:playlist
     })
   }
 
@@ -75,16 +57,18 @@ export class HomePage {
         if (this.resp.items[index].owner.id.toString() == this.spotifyProvider.userId.toString()){
           index2 = index2+1
           if (this.resp.items[index].images[0] == null) {
-            this.ownedPlaylists[index2] = new playlist(this.resp.items[index].name,
+            this.ownedPlaylists[index2] = new Playlist(this.resp.items[index].name,
               'http://www.thetravelboss.com/images/latest-img1.jpg',
               this.resp.items[index].tracks.total,
-              this.resp.items[index].uri)
+              this.resp.items[index].uri,
+              this.resp.items[index].id)
           }
           else {
-            this.ownedPlaylists[index2] = new playlist(this.resp.items[index].name,
+            this.ownedPlaylists[index2] = new Playlist(this.resp.items[index].name,
               this.resp.items[index].images[0].url,
               this.resp.items[index].tracks.total,
-              this.resp.items[index].uri)
+              this.resp.items[index].uri,
+              this.resp.items[index].id)
           }
         }
       }
@@ -100,16 +84,18 @@ export class HomePage {
         if (this.resp.items[index].owner.id.toString() != this.spotifyProvider.userId.toString()){
           index2 = index2+1
           if (this.resp.items[index].images[0] == null) {
-            this.followedPlaylists[index2] = new playlist(this.resp.items[index].name,
+            this.followedPlaylists[index2] = new Playlist(this.resp.items[index].name,
               'http://www.thetravelboss.com/images/latest-img1.jpg',
               this.resp.items[index].tracks.total,
-              this.resp.items[index].uri)
+              this.resp.items[index].uri,
+              this.resp.items[index].id)
           }
           else {
-            this.followedPlaylists[index2] = new playlist(this.resp.items[index].name,
+            this.followedPlaylists[index2] = new Playlist(this.resp.items[index].name,
               this.resp.items[index].images[0].url,
               this.resp.items[index].tracks.total,
-              this.resp.items[index].uri)
+              this.resp.items[index].uri,
+              this.resp.items[index].id)
           }
         }
       }
@@ -145,10 +131,12 @@ export class HomePage {
 
 }
 
-class playlist {
+class Playlist {
   constructor(
     public name: string,
     public img: any,
     public numTracks: number,
-    public uri: string) { }
+    public uri: string,
+    public id:string,
+    ) { }
 }
