@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, Keyboard, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, Keyboard, NavController, NavParams, AlertController} from 'ionic-angular';
 import {SpotifyProvider} from "../../providers/spotify/spotify";
 import {AlbumsPage} from "../albums/albums";
 import {RelatedArtistsPage} from "../related-artists/related-artists";
@@ -29,7 +29,7 @@ export class AddArtistPage {
   numberRandom = 10             //numero di canzoni random
   items:any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider, public keyboard:Keyboard) {
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider, public keyboard:Keyboard) {
     this.id = navParams.get('id')
     this.artistName = navParams.get('artistName')
   }
@@ -44,18 +44,38 @@ export class AddArtistPage {
   */
 
   addTopTracks(){
-    this.spotifyProvider.getArtistTopTracks(this.id).subscribe(
-      data=>{
-        this.res = data
-        for (let track of this.res.tracks) {
-          this.uris.push(track.uri)
-        }
-        this.addToPlaylist(this.uris)
+    let alert = this.alertCtrl.create({
+      title: 'Are you sure?',
+      message: 'Add this to your playlist?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            this.spotifyProvider.getArtistTopTracks(this.id).subscribe(
+              data=>{
+                this.res = data
+                for (let track of this.res.tracks) {
+                  this.uris.push(track.uri)
+                }
+                this.addToPlaylist(this.uris)
+        
+              },err=>{
+                console.log(err)
+              }
+            )
 
-      },err=>{
-        console.log(err)
-      }
-    )
+            console.log('Agree clicked');
+          }
+        }
+      ]
+    })
+    alert.present()
   }
 
 /*
@@ -63,20 +83,39 @@ export class AddArtistPage {
 */
 
   getRandomSongs(){
-    this.spotifyProvider.searchAlbums(this.id).subscribe(
-      data=>{
-        let ids : string[] = []
-        this.res = data
-        for (let album of this.res.items){
-          ids.push(album.id)
+    let alert = this.alertCtrl.create({
+      title: 'Are you sure?',
+      message: 'Add this to your playlist?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            this.spotifyProvider.searchAlbums(this.id).subscribe(
+              data=>{
+                let ids : string[] = []
+                this.res = data
+                for (let album of this.res.items){
+                  ids.push(album.id)
+                }
+                this.albumsIds = ids.join('%2C')
+                this.getAllTracks()
+              },err=>{
+                console.log(err)
+        
+              }
+            )            
+            console.log('Agree clicked');
+          }
         }
-        this.albumsIds = ids.join('%2C')
-        this.getAllTracks()
-      },err=>{
-        console.log(err)
-
-      }
-    )
+      ]
+    });
+    alert.present()
   }
 
   getAllTracks(){

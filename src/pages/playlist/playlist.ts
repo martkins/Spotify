@@ -17,7 +17,7 @@ import {PlaylistSpotifyPage} from "../playlist-spotify/playlist-spotify";
   templateUrl: 'playlist.html',
 })
 export class PlaylistPage {
-
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

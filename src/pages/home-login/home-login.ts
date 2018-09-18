@@ -29,7 +29,7 @@ export class HomeLoginPage {
     if (this.platform.is('mobile')){
       this.platform.ready().then(()=>{
         this.spotifyProvider.loginSpotify().then(success=>{
-          alert('Accesso Effettuato')
+          alert('Logged In')
 
         },error=>{
           alert(error)
