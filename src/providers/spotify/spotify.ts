@@ -340,13 +340,20 @@ API for song's lyrics
     })
   }
 
-  getPlaylistsTracks(ids){
-    return this.http.get(this.baseUrl+'/playlists/'+ids+'/tracks',{
+  getPlaylistsTracks(id){
+    return this.http.get(this.baseUrl+'/playlists/'+id+'/tracks',{
       headers:this.requestHeader
     })
   }
 
-
+  changePlaylistDetails(id,newName,isPublic){
+    return this.http.put(this.baseUrl+'/playlists/'+id,{
+      'name':newName,
+      'public':isPublic
+    },{
+      headers:this.requestHeader
+    })
+  }
 
 
 /*

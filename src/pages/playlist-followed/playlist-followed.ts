@@ -56,6 +56,7 @@ export class PlaylistFollowedPage {
   }
 
   addAllTracks(idPlaylist){
+<<<<<<< HEAD
     let alert = this.alertCtrl.create({
       title: 'Are you sure?',
       message: 'Add this to your playlist?',
@@ -84,6 +85,14 @@ export class PlaylistFollowedPage {
             )            
             console.log('Agree clicked');
           }
+=======
+    this.spotifyProvider.getPlaylistsTracks(idPlaylist).subscribe(
+      data=>{
+        this.res = data
+        let uris: string[] = []
+        for (let item of this.res.items){
+          uris.push(item.track.uri)
+>>>>>>> 86230b990c1f7cf3b532d99198a35ad298126daf
         }
       ]
     });

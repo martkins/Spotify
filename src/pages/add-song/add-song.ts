@@ -18,10 +18,12 @@ export class AddSongPage {
   id:string // id canzone
   number = '30'                 // # canzoni visualizzate
   res:any
-  allTracks = []                // tracce restituite da API
-
+  allTracks = []      // tracce restituite da API
+  uri:any
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
     this.id = navParams.get('id')
+    this.uri = navParams.get('uri')
+    this.addTrackToPlaylist(this.uri)
     this.getSongsList();
   }
 

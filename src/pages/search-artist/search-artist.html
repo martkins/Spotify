@@ -19,7 +19,7 @@
   <div *ngIf="items?.length>0">
     <ion-list *ngFor="let i of items">
       <ion-item>
-        <ion-thumbnail *ngIf="i.images?.length>0" item-start>
+        <ion-thumbnail (click)="chooseArtist(i.id, i.name)" *ngIf="i.images?.length>0" item-start>
           <img src="{{i.images[0].url}}">
         </ion-thumbnail>
         <h1 (click)="chooseArtist(i.id, i.name)">{{i.name}}</h1>
