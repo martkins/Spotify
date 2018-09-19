@@ -7,23 +7,38 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>managePlaylist</ion-title>
+    <ion-title>{{this.playlist.name}}</ion-title>
+    <button class="modifyButton" clear ion-button (click)="renamePlaylist(playlist.id)">
+      <ion-icon class="icon" name='create'></ion-icon>
+    </button>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <button ion-button (click)="renamePlaylist(playlist.id,newName,isPublic)">Change Details</button>
-  <button ion-button (click)="pushToPlaylistMenu()">Add Tracks</button>
+<ion-content padding> 
 
+  <ion-fab bottom right>
+    <button ion-fab color='dark' (click)="pushToPlaylistMenu()">
+      <ion-icon class="iconAdd" name='add'></ion-icon>
+    </button>
+  </ion-fab>
 
   <ion-card>
-  <img src="{{playlist.img}}">
+    <img src="{{playlist.img}}">
   </ion-card>
-  <ion-item  *ngFor="let t of allTracks">
-    <h2>{{t.name}}</h2>
-    <p>{{t.artist}}</p>
-    <button ion-button clear item-end (click)="deleteTrack(t.uri)">Remove</button>
-  </ion-item>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let t of allTracks" #item>      
+      <ion-item>
+        <h2>{{t.name}}</h2>
+        <p>{{t.artist}}</p>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="deleteTrack(t.uri)">
+          <ion-icon class='trashIcon' name='trash'></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

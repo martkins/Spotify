@@ -48,11 +48,8 @@ export class SongPage {
     this.navCtrl.push(SearchSongPage)
   }
 
-
-
-
-
-
-
+  donePlaylist(){
+    this.navCtrl.popToRoot()
+  }
 
 }

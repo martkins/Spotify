@@ -61,8 +61,9 @@ export class SearchSongPage {
     )
   }
 
-
-
+  donePlaylist(){
+    this.navCtrl.popToRoot()
+  }
 
 }
 

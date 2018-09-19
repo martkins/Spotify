@@ -69,4 +69,9 @@ export class AddTopTracksPage {
       }
     )
   }
+
+  donePlaylist(){
+    this.navCtrl.popToRoot()
+  }
+
 }

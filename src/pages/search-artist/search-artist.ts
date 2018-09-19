@@ -57,6 +57,10 @@ export class SearchArtistPage {
       id:this.id,
       artistName:this.artistName
     })
-}
+  }
+
+  donePlaylist(){
+    this.navCtrl.popToRoot()
+  }
 
 }

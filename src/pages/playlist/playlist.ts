@@ -43,4 +43,9 @@ export class PlaylistPage {
 
     })
   }
+
+  donePlaylist(){
+    this.navCtrl.popToRoot()
+  }
+
 }

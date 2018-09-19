@@ -5,6 +5,7 @@ import {SongPage} from "../song/song";
 import {PlaylistPage} from "../playlist/playlist";
 import {GenrePage} from "../genre/genre";
 import {SearchArtistPage} from "../search-artist/search-artist";
+import { SpotifyProvider } from '../../providers/spotify/spotify';
 
 /**
  * Generated class for the PlaylistMenuPage page.
@@ -21,7 +22,7 @@ import {SearchArtistPage} from "../search-artist/search-artist";
 })
 export class PlaylistMenuPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private spotifyProvider: SpotifyProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -43,6 +44,10 @@ export class PlaylistMenuPage {
 
   pushToAddGenre(){
     this.navCtrl.push(GenrePage)
+  }
+
+  donePlaylist(){
+    this.navCtrl.popToRoot()
   }
 
 }

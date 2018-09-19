@@ -100,6 +100,11 @@ export class PlaylistFollowedPage {
       }
     )
   }
+
+  donePlaylist(){
+    this.navCtrl.popToRoot()
+  }
+
 }
 
 

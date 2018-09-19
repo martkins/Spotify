@@ -88,4 +88,9 @@ export class RelatedArtistsPage {
       }
     )
   }
+
+  donePlaylist(){
+    this.navCtrl.popToRoot()
+  }
+
 }

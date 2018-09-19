@@ -178,4 +178,9 @@ export class AddArtistPage {
       id:this.id
     })
   }
+
+  donePlaylist(){
+    this.navCtrl.popToRoot()
+  }
+
 }

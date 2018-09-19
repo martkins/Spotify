@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import {SpotifyProvider} from "../../providers/spotify/spotify";
 import {PlaylistMenuPage} from "../playlist-menu/playlist-menu";
 
@@ -19,11 +19,9 @@ export class ManagePlaylistPage {
   private playlist:Playlist
   private res:any
   allTracks = []
-  newName = 'tuma'
-  isPublic= true
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
     this.playlist = navParams.get('playlist')
     this.spotifyProvider.playlistId = this.playlist.id
     this.getTracks(this.playlist.id)
@@ -49,13 +47,38 @@ export class ManagePlaylistPage {
     )
   }
 
-  renamePlaylist(idPlaylist,newName,isPublic){
-    this.spotifyProvider.changePlaylistDetails(idPlaylist,newName,isPublic).subscribe(
-      data=>{
-      },err=>(
-        console.log(err)
-      )
-    )
+  renamePlaylist(idPlaylist){
+    let alert = this.alertCtrl.create({
+      title: 'Rename Playlist',
+      inputs: [
+        {
+          name: 'newName',
+          placeholder: 'Name'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Ok',
+          handler: data => {
+            this.spotifyProvider.changePlaylistDetails(idPlaylist,data.newName).subscribe(
+              data=>{
+              },err=>(
+                console.log(err)
+              )
+            )
+            this.navCtrl.pop()  
+          } 
+        }
+      ]
+    })
+    alert.present()
   }
 
 

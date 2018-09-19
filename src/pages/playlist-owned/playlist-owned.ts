@@ -104,6 +104,11 @@ export class PlaylistOwnedPage {
       }
     )
   }
+
+  donePlaylist(){
+    this.navCtrl.popToRoot()
+  }
+
 }
 
 class Playlist {

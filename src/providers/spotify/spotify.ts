@@ -30,7 +30,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @Injectable()
 export class SpotifyProvider {
-  token_tmp = 'BQDAx-Fhv669GQ1XkC7XfVdNWpl9Ro9hixtmxWYVPFlO1MpkzwzECDgbhbXFdcVtZ0UHe5S2ZTLurduzu0GEvCd9DSuKDcnxYy0yAeZA7y4ZtYnM5R1dfnCIrlnKgVOj7xfI7T3m6cOjuTINPK-Y-Zeh4MwARbnr0q1i59D813KRHzMSyqQM1gLKjUMVityxN4tl1RK1INyuHiN4KxLqvov-zqKT3EBXFnbFyRizs9ITj_1i-MMtuhZOkVaRzkn7JlMGfnogSRHzw24yGPfUVj3byjEq5w&token_type=Bearer&expires_in=3600&state=123'
+  token_tmp = 'BQCMh2kOy4z_mVgDkZDYF-o82DMFQHjF4QfG0m2pFmbFEsmMBI7K0SeRf1kbAVbO55IBU_fXLGVMZ2dcq4kSbYfIJAAps9Dhh4wAI5U4FdG_DeTgJX5_TjEg9_5TqsBDQm4gbDD7d2XDa38yo2Dhg4Z9yoOivWIDbD3Tp5Q34n_aL3KQ8Anc-leu2vHdcASROLbnBXYm-3vDPEVrRREv3q429PvP2T5UdCBr8b9W80vJpdmX4RuQYfb-BBlg1zmvVAj0L21Fa-ONyV8NikzUaqVn7ut3ig&token_type=Bearer&expires_in=3600&state=123'
 
   client_id = 'd0612aeb3d0741cb9939c51b25c75394';
   response_type = 'token';
@@ -75,7 +75,8 @@ export class SpotifyProvider {
       }
     }
 
-    }
+  }
+
 
 /*
   API for search
@@ -346,10 +347,9 @@ API for song's lyrics
     })
   }
 
-  changePlaylistDetails(id,newName,isPublic){
+  changePlaylistDetails(id,newName){
     return this.http.put(this.baseUrl+'/playlists/'+id,{
-      'name':newName,
-      'public':isPublic
+      'name':newName
     },{
       headers:this.requestHeader
     })

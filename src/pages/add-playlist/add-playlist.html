@@ -13,18 +13,19 @@
 
   <!-- ho levato i bottoni, basta commentare riga 39 di add-playlist.ts -->
 
-  <ion-item>
-      <ion-label floating>Name</ion-label>
-      <ion-input type="text" [(ngModel)]="name"></ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-label floating>Description</ion-label>
-      <ion-input type="text" [(ngModel)]="description"></ion-input>
-  </ion-item>
-  <ion-item class="toggleLabel">
-      <ion-label>Make it public?</ion-label>
-      <ion-toggle [(ngModel)]="isPublic"></ion-toggle>
-  </ion-item>
+  
+    <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Description</ion-label>
+        <ion-input type="text" [(ngModel)]="description"></ion-input>
+    </ion-item>
+    <ion-item class="toggleLabel">
+        <ion-label>Make it public?</ion-label>
+        <ion-toggle [(ngModel)]="isPublic"></ion-toggle>
+    </ion-item>
     
   <div class="buttonWrapper">
     <button ion-button (click)="pushToPlaylistMenu()">Create Playlist</button>

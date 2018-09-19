@@ -90,4 +90,9 @@ export class AlbumsPage {
       }
     )
   }
+
+  donePlaylist(){
+    this.navCtrl.popToRoot()
+  }
+
 }

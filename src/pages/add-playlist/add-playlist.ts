@@ -31,6 +31,12 @@ export class AddPlaylistPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
   }
 
+  ionViewWillEnter(){
+    this.name=''
+    this.description=''
+    this.isPublic=false
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddPlaylistPage');
   }

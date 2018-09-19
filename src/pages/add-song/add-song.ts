@@ -84,6 +84,11 @@ export class AddSongPage {
       }
     )
   }
+
+  donePlaylist(){
+    this.navCtrl.popToRoot()
+  }
+
 }
 
 class Track {
