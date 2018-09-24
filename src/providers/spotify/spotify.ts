@@ -30,7 +30,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @Injectable()
 export class SpotifyProvider {
-  token_tmp = 'BQCMh2kOy4z_mVgDkZDYF-o82DMFQHjF4QfG0m2pFmbFEsmMBI7K0SeRf1kbAVbO55IBU_fXLGVMZ2dcq4kSbYfIJAAps9Dhh4wAI5U4FdG_DeTgJX5_TjEg9_5TqsBDQm4gbDD7d2XDa38yo2Dhg4Z9yoOivWIDbD3Tp5Q34n_aL3KQ8Anc-leu2vHdcASROLbnBXYm-3vDPEVrRREv3q429PvP2T5UdCBr8b9W80vJpdmX4RuQYfb-BBlg1zmvVAj0L21Fa-ONyV8NikzUaqVn7ut3ig&token_type=Bearer&expires_in=3600&state=123'
+  token_tmp = 'BQD7Kusif_ZlwaAp4dvFLZwrRe9_Bm0Us1M1F6t6_Wi2w_Ui0xJBmSemOtejzqoG-DtQounrZjfCPt0llAbkpz018uyHP-m62nj0NHr0XT5gbR-pZFjgUq0w7cEs2SkZAgUdwrgooKspTz-gRXKKCTtKfUezbwnzsrluktQ-EsiWp-TN9JLHw6tY64vSq2aK9OMJT8qW20dkiU3VDi5H4eDg_YSMCRALr6cphDkZr1sP7bmYCfsv9ekKSsylQF27UOKaE2x6hNBUQHMJc9sk-QWDVcUXbw&token_type=Bearer&expires_in=3600&state=123'
 
   client_id = 'd0612aeb3d0741cb9939c51b25c75394';
   response_type = 'token';

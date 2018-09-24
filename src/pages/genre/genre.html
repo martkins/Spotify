@@ -7,12 +7,40 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>genre</ion-title>
+    <ion-title>Genres</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label class="genreLabel">Danceability
+        <button item-content class='info' ion-button clear icon-only (click)="showInfo('Danceability')">
+          <ion-icon name="information-circle"></ion-icon>
+        </button>
+      </ion-label>
+      <ion-range dualKnobs="true" pin="true" [(ngModel)]="danceabilityRange" color="dark">
+        <ion-label range-left>0</ion-label>
+        <ion-label range-right>100</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="genreLabel">Danceability
+        <button item-content class='info' ion-button clear icon-only (click)="showInfo('Danceability')">
+          <ion-icon name="information-circle"></ion-icon>
+        </button>
+      </ion-label>
+      <ion-range dualKnobs="true" pin="true" [(ngModel)]="danceabilityRange" color="dark">
+        <ion-label range-left>0</ion-label>
+        <ion-label range-right>100</ion-label>
+      </ion-range>
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>
