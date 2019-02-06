@@ -10,14 +10,10 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { SpotifyProvider } from '../providers/spotify/spotify';
 import {HttpClientModule} from "@angular/common/http";
-import {ArtistAlbumsPage} from "../pages/artist-albums/artist-albums";
-import {AlbumDetailsPage} from "../pages/album-details/album-details";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {NativeStorage} from "@ionic-native/native-storage";
 import {IonicStorageModule} from "@ionic/storage";
 import {HTTP} from "@ionic-native/http";
-import {LyricsPage} from "../pages/lyrics/lyrics";
-import {ProgressPage} from "../pages/progress/progress";
 import {AddArtistPage} from "../pages/add-artist/add-artist";
 import {AddPlaylistPage} from "../pages/add-playlist/add-playlist";
 import {SongPage} from "../pages/song/song";
@@ -40,10 +36,6 @@ import {ManagePlaylistPage} from "../pages/manage-playlist/manage-playlist";
   declarations: [
     MyApp,
     HomePage,
-    ArtistAlbumsPage,
-    AlbumDetailsPage,
-    LyricsPage,
-    ProgressPage,
     AddArtistPage,
     AddPlaylistPage,
     SongPage,
@@ -75,10 +67,6 @@ import {ManagePlaylistPage} from "../pages/manage-playlist/manage-playlist";
   entryComponents: [
     MyApp,
     HomePage,
-    ArtistAlbumsPage,
-    AlbumDetailsPage,
-    LyricsPage,
-    ProgressPage,
     AddArtistPage,
     AddPlaylistPage,
     SongPage,

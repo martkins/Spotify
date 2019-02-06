@@ -1,8 +1,6 @@
 import { Component,  ViewChildren, QueryList} from '@angular/core';
 import { NavController , Slides, App, AlertController} from 'ionic-angular';
 import { SpotifyProvider} from "../../providers/spotify/spotify";
-import {ArtistAlbumsPage} from "../artist-albums/artist-albums";
-import {LyricsPage} from "../lyrics/lyrics";
 import { HomeLoginPage } from '../home-login/home-login';
 import {ManagePlaylistPage} from "../manage-playlist/manage-playlist";
 
@@ -42,11 +40,6 @@ export class HomePage {
       playlist:playlist
     })
   }
-
-  pushToLyrics(){
-    this.navCtrl.push(LyricsPage)
-  }
-
 
   showOwnedPlaylist(){
     this.spotifyProvider.getCurrentUserPlaylist().subscribe(data=>{

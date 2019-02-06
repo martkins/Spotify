@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {AddArtistPage} from "../add-artist/add-artist";
 import {SongPage} from "../song/song";
 import {PlaylistPage} from "../playlist/playlist";
 import {GenrePage} from "../genre/genre";
@@ -41,7 +40,7 @@ export class AddPlaylistPage {
   }
 
   pushToPlaylistMenu(){
-    //this.addPlaylist()
+    this.addPlaylist()
     this.navCtrl.push(PlaylistMenuPage)
   }
 
