@@ -1,12 +1,22 @@
 page-playlist-owned {
 
-    .cardTitle{
-        text-align: center;
-        font-size: 25px;
+    .title{
+        position: absolute;
+        top: 26%;
     }
-    
-    .cardSubtitle{
+
+    .doneButton{
+        float: right;
+    }
+
+    .list{
         text-align: center;
+    }
+
+    .cardDiv{
+        display: inline-block;
+        height: 22em;
+        width: 22em;
     }
 
 }

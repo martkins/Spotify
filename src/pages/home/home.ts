@@ -16,8 +16,8 @@ export class HomePage {
 
   private resp:any;
   private items:any;
-  private ownedPlaylists = [];
-  private followedPlaylists = []
+  public ownedPlaylists = [];
+  public followedPlaylists = []
   private range = (N) => Array.from({length: N}, (v, k) => k+1) ;
   private numPlaylists: any;
   private notLoggedIn: boolean;
@@ -115,9 +115,10 @@ export class HomePage {
   getUserId(){
     this.spotifyProvider.getUserProfile().subscribe(
       data=>{
-        this.resp= data
+        this.resp = data
         this.spotifyProvider.userId = this.resp.id
-      },err =>{
+      },
+      err =>{
         let alert = this.alertCtrl.create({
           title: 'You are not logged in',
           subTitle: 'Login on Spotify!',

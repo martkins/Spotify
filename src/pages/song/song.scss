@@ -1,15 +1,27 @@
 page-song {
 
-    .card{
-        text-align: center;
-        vertical-align: middle;
-        line-height: 210px;
-        height: 200px;
-        font-size: 16px;
-        background-image: url(../../assets/imgs/music.jpeg);
-        background-size: 150px 100px;
-        background-repeat: no-repeat;
-        background-position-x: 50%;
+    .title{
+        position: absolute;
+        top: 26%;
     }
+
+    .doneButton{
+        float: right;
+    }
+
+    .col{
+        text-align: center;
+        margin-top: 5rem;
+        height: 10em;
+    }
+
+    .buttons{
+        white-space: normal;
+        background-color: black;
+        display: inline-flex;
+        width: 7em;
+        height: 7em;
+    }
+
 
 }

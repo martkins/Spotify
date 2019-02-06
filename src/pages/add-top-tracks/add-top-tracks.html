@@ -7,8 +7,10 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>AddTopTracks</ion-title>
-    <button class="doneButton" ion-button item-end (click)='donePlaylist()'>Done!</button>
+    <div>
+      <ion-title class="title">Add Top Tracks</ion-title>
+      <button class="doneButton" ion-button color=dark item-end (click)='donePlaylist()'>Done!</button>
+    </div>
   </ion-navbar>
 
 </ion-header>
@@ -18,18 +20,24 @@
 
     <ion-grid>
       <ion-row>
-        <ion-col class="card" (click)="addTopTracks('short_term')">
-          Short Term
+        <ion-col>
+          <button class='buttons' ion-button (click)="addTopTracks('short_term')" round>
+            Short Term
+          </button>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class="card" (click)="addTopTracks('medium_term')">
-          Medium Term
+        <ion-col>
+          <button class='buttons' ion-button (click)="addTopTracks('medium_term')" round>
+            Medium Term
+          </button>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class="card" (click)="addTopTracks('long_term')">
-          Long Term
+        <ion-col>
+          <button class='buttons' ion-button (click)="addTopTracks('long_term')" round>
+            Long Term
+          </button>
         </ion-col>
       </ion-row>
     </ion-grid>

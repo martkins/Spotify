@@ -1,3 +1,31 @@
 page-search-song {
 
+  .title{
+      position: absolute;
+      top: 26%;
+  }
+
+  .doneButton{
+      float: right;
+  }
+
+  h3{
+      padding-top: 0.5em;
+      text-align: center;
+  }
+
+  .col{
+      text-align: center;
+      margin-top: 2rem;
+      height: 10em;
+  }
+
+  .buttons{
+      background-color: black;
+      display: inline-flex;
+      width: 7em;
+      height: 7em;
+  }
+
+
 }

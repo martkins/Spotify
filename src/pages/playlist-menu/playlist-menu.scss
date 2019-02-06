@@ -1,19 +1,30 @@
 page-playlist-menu {
+
+    .title{
+        position: absolute;
+        top: 26%;
+    }
+
+    .doneButton{
+        float: right;
+    }
     
     h3{
-        padding-top: 20px;
+        padding-top: 0.5em;
         text-align: center;
     }
 
-    .card{
+    .col{
         text-align: center;
-        vertical-align: middle;
-        line-height: 210px;
-        height: 200px;
-        font-size: 25px;
-        background-image: url(../../assets/imgs/music.jpeg);
-        background-size: 150px 100px;
-        background-repeat: no-repeat;
+        margin-top: 2rem;
+        height: 10em;
+    }
+
+    .buttons{
+        background-color: black;
+        display: inline-flex;
+        width: 7em;
+        height: 7em;
     }
 
 }

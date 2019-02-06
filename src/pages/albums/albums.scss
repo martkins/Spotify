@@ -1,8 +1,22 @@
 page-albums {
 
-    .cardTitle{
+    .title{
+        position: absolute;
+        top: 26%;
+    }
+
+    .doneButton{
+        float: right;
+    }
+
+    .list{
         text-align: center;
-        font-size: 25px;
+    }
+
+    .cardDiv{
+        display: inline-block;
+        height: 22em;
+        width: 22em;
     }
 
 }

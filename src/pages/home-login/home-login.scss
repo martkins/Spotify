@@ -4,25 +4,25 @@ page-home-login {
         text-align: center;
     }
 
-    .buttons{
-        align-items: center;
-        display: flex; 
-        justify-content: center;
-        height: 240px;
+    .wrapper{
+        text-align: center;
     }
 
-    .buttons button{
-        display: block;   
-        height: 50%;
-        width: 80%;
+    .buttons{
+        margin-top: 10%;
+    }
+
+    .buttons button{  
+        height: 9em;
+        width: 16em;
     }
 
     .buttons h3{
-        height: 10%; 
+        margin-bottom: 0%;
     }
 
     .buttons ion-icon{
-        font-size: 100px;
+        font-size: 5em;
     }
 
 

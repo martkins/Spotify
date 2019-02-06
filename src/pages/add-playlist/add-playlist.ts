@@ -15,7 +15,6 @@ import {SearchArtistPage} from "../search-artist/search-artist";
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-  //TODO: Far decidere a utente nome, descrizione, pubblico, magari con un popup che si apre dopo aver cliccato su crea playlist
 
 @IonicPage()
 @Component({
@@ -24,7 +23,7 @@ import {SearchArtistPage} from "../search-artist/search-artist";
 })
 export class AddPlaylistPage {
 
-  private name:string;
+  name:string;
   description:string;
   isPublic:boolean = false;
   res : any

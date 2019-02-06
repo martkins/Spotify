@@ -7,8 +7,10 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{artistName}}</ion-title>
-    <button class="doneButton" ion-button item-end (click)='donePlaylist()'>Done!</button>
+    <div>
+      <ion-title class="title">{{artistName}}</ion-title>
+      <button class="doneButton" ion-button color=dark item-end (click)='donePlaylist()'>Done!</button>
+    </div>
   </ion-navbar>
 
 </ion-header>
@@ -18,22 +20,29 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col class="card" (click)="addTopTracks()">
-        Add Top 10 Tracks
+      <ion-col>
+        <button class='buttons' ion-button (click)="addTopTracks()" round>
+          Add Top 10 Tracks
+        </button>
       </ion-col>
-      <ion-col class="card" (click)="getRandomSongs()">
-        Add Random Songs
+      <ion-col>
+        <button class='buttons' ion-button (click)="getRandomSongs()" round>
+          Add Random Songs
+        </button>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="card" (click)="pushToAllAlbums()">
-        Add Album
+      <ion-col>
+        <button class='buttons' ion-button (click)="pushToAllAlbums()" round>
+          Add Album
+        </button>
       </ion-col>
-      <ion-col class="card" (click)="pushToRelatedArtists()">
-        Add Related Artists
+      <ion-col>
+        <button class='buttons' ion-button (click)="pushToRelatedArtists()" round>
+          Add Related Artists
+        </button>
       </ion-col>
     </ion-row>
   </ion-grid>
-
 
 </ion-content>

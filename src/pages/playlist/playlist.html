@@ -7,8 +7,10 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Add Playlist</ion-title>
-    <button class="doneButton" ion-button item-end (click)='donePlaylist()'>Done!</button>
+    <div>
+      <ion-title class="title">Add Playlists</ion-title>
+      <button class="doneButton" ion-button color=dark item-end (click)='donePlaylist()'>Done!</button>
+    </div>
   </ion-navbar>
 
 </ion-header>
@@ -18,20 +20,19 @@
 
     <ion-grid>
       <ion-row>
-        <ion-col class="card" (click)="pushToPlaylistOwned()">
-          Add one of your playlists
+        <ion-col>
+          <button class='buttons' ion-button (click)="pushToPlaylistOwned()" round>
+            Add one of your playlists
+          </button>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class="card" (click)="pushToPlaylistFollowed()">
-          Add one of your followed playlists
+        <ion-col>
+          <button class='buttons' ion-button (click)="pushToPlaylistFollowed()" round>
+            Add one of your followed playlists
+          </button>
         </ion-col>
       </ion-row>
-      <!-- <ion-row>
-        <ion-col class="card" (click)="pushToPlaylistSpotify()">
-          Add one of Spotify playlists
-        </ion-col>
-      </ion-row> -->
     </ion-grid>
 
 </ion-content>

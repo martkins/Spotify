@@ -1,12 +1,27 @@
 page-manage-playlist {
 
+    .title{
+        position: absolute;
+        top: 26%;
+    }
+
     .modifyButton{
         float: right;
     }
 
+    .card-wrapper{
+        text-align: center;
+    }
+
+    .card{
+        display: inline-block;
+        width: 20em;
+        height: 20em;
+    }
+
     .icon{
         color: black;
-        font-size: 30px;
+        font-size: 2em;
     }
 
     .buttonAdd{
@@ -20,7 +35,7 @@ page-manage-playlist {
     .trashIcon{
         color: white;
         text-align: center;
-        font-size: 30px;
+        font-size: 2em;
     }
 
 }

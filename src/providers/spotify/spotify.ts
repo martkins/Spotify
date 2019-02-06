@@ -106,7 +106,6 @@ export class SpotifyProvider {
 
   loginComputer(){
     window.open('https://accounts.spotify.com/authorize?client_id=' + this.client_id + '&redirect_uri=' + this.redirect_uri + '&response_type=' + this.response_type + '&state=' + this.state + '&scope='+this.scope, '_system')
-
   }
 
   // loginSpotify(){

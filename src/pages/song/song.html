@@ -7,8 +7,10 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Add Tracks</ion-title>
-    <button class="doneButton" ion-button item-end (click)='donePlaylist()'>Done!</button>
+    <div>
+      <ion-title class="title">Add Tracks</ion-title>
+      <button class="doneButton" ion-button color=dark item-end (click)='donePlaylist()'>Done!</button>
+    </div>
   </ion-navbar>
 
 </ion-header>
@@ -17,13 +19,17 @@
 <ion-content padding>
     <ion-grid>
       <ion-row>
-        <ion-col class="card" (click)="pushToAddTopTracks()">
-          Add Your Top Tracks
+        <ion-col>
+          <button class='buttons' ion-button (click)="pushToAddTopTracks()" round>
+            Add Your Top Tracks
+          </button>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class="card" (click)="pushToSearchSong()">
-          Add Related Tracks
+        <ion-col>
+          <button class='buttons' ion-button (click)="pushToSearchSong()" round>
+            Add Related Tracks
+          </button>
         </ion-col>
       </ion-row>
     </ion-grid>

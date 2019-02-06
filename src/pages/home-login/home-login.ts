@@ -30,7 +30,6 @@ export class HomeLoginPage {
       this.platform.ready().then(()=>{
         this.spotifyProvider.loginSpotify().then(success=>{
           alert('Logged In')
-
         },error=>{
           alert(error)
         })
@@ -38,7 +37,6 @@ export class HomeLoginPage {
     }
     else {
       this.spotifyProvider.loginComputer()
-
     }
   }
 

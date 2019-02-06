@@ -7,8 +7,10 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Related Artists</ion-title>
-    <button class="doneButton" ion-button item-end (click)='donePlaylist()'>Done!</button>
+    <div>
+      <ion-title class="title">Related Artists</ion-title>
+      <button class="doneButton" ion-button color=dark item-end (click)='donePlaylist()'>Done!</button>
+    </div>
   </ion-navbar>
 
 </ion-header>
@@ -17,11 +19,17 @@
 <ion-content padding>
   <div *ngIf="artists?.length>0">
     <ion-list *ngFor="let a of artists">
-      <ion-card (click)="addTopTracks(a.id)">
-        <img *ngIf="a.images?.length>0" src="{{a.images[0].url}}"/>
-        <div class="cardTitle">{{a.name}}</div>
-        <div class="cardSubtitle">Add 10 Top Tracks</div>
-      </ion-card>
+      <div class='cardDiv'>
+        <ion-card (click)="addTopTracks(a.id)">
+          <img *ngIf="a.images?.length>0" src="{{a.images[0].url}}"/>
+          <ion-card-content>
+            <ion-card-title>
+              {{a.name}}
+            </ion-card-title>
+            <p>Add 10 Top Tracks</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
     </ion-list>
   </div>
 

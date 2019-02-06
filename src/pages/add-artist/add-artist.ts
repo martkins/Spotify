@@ -10,9 +10,6 @@ import {RelatedArtistsPage} from "../related-artists/related-artists";
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-  //TODO: Implementare HTML (con cards?)
-  //TODO: Far scegliere all'utente il nome dell'artista come prima cosa
-  //TODO: Far scegliere all'utente il numero di canzoni random da aggiungere
 
 @IonicPage()
 @Component({

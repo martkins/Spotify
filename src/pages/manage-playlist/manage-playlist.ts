@@ -1,5 +1,6 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import {SpotifyProvider} from "../../providers/spotify/spotify";
 import {PlaylistMenuPage} from "../playlist-menu/playlist-menu";
 
@@ -16,12 +17,16 @@ import {PlaylistMenuPage} from "../playlist-menu/playlist-menu";
   templateUrl: 'manage-playlist.html',
 })
 export class ManagePlaylistPage {
-  private playlist:Playlist
+  public playlist:Playlist
   private res:any
   allTracks = []
 
 
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, private spotifyProvider:SpotifyProvider) {
+  constructor(public alertCtrl: AlertController, 
+              public navCtrl: NavController, 
+              public navParams: NavParams, 
+              private spotifyProvider:SpotifyProvider,
+              private toastCtrl: ToastController) {
     this.playlist = navParams.get('playlist')
     this.spotifyProvider.playlistId = this.playlist.id
     this.getTracks(this.playlist.id)
@@ -39,8 +44,8 @@ export class ManagePlaylistPage {
 
   deleteTrack(uri){
     this.spotifyProvider.removeFromPlaylist(uri).subscribe(
-      data=>{
-        console.log(data)
+      ()=>{
+        this.presentToast();
       },err=>(
         console.log(err)
       )
@@ -68,12 +73,12 @@ export class ManagePlaylistPage {
           text: 'Ok',
           handler: data => {
             this.spotifyProvider.changePlaylistDetails(idPlaylist,data.newName).subscribe(
-              data=>{
+              () => {
+                this.presentAlert()               
               },err=>(
                 console.log(err)
               )
             )
-            this.navCtrl.pop()  
           } 
         }
       ]
@@ -102,7 +107,30 @@ export class ManagePlaylistPage {
 
   }
 
+  async presentAlert() {
+    const alert = await this.alertCtrl.create({
+      title: 'Name was successfully changed!',
+      // message: 'This is an alert message.',
+      buttons: [
+        {
+          text: 'Ok',          
+          handler: data => {            
+            this.navCtrl.setRoot(HomePage)
+          }
+        }
+      ]
+    });
 
+    await alert.present();
+  }
+
+  presentToast() {
+    const toast = this.toastCtrl.create({
+      message: 'Track successfully deleted',
+      duration: 2000
+    });
+    toast.present();
+  }
 
 }
 
@@ -123,3 +151,4 @@ class Track {
     public artist: string,
     public uri: string) { }
 }
+

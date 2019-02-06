@@ -7,10 +7,12 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{this.playlist.name}}</ion-title>
-    <button class="modifyButton" clear ion-button (click)="renamePlaylist(playlist.id)">
-      <ion-icon class="icon" name='create'></ion-icon>
-    </button>
+    <div>
+      <ion-title class="title">{{this.playlist.name}}</ion-title>
+      <button class="modifyButton" clear ion-button (click)="renamePlaylist(playlist.id)">
+        <ion-icon class="icon" name='create'></ion-icon>
+      </button>
+    </div>
   </ion-navbar>
 
 </ion-header>
@@ -24,9 +26,11 @@
     </button>
   </ion-fab>
 
-  <ion-card>
-    <img src="{{playlist.img}}">
-  </ion-card>
+  <div class='card-wrapper'>
+    <ion-card class="card">
+      <img src="{{playlist.img}}">
+    </ion-card>
+  </div>
 
   <ion-list>
     <ion-item-sliding *ngFor="let t of allTracks" #item>      

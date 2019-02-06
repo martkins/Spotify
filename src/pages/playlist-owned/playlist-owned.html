@@ -7,22 +7,29 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Add a playlist</ion-title>
-    <button class="doneButton" ion-button item-end (click)='donePlaylist()'>Done!</button>
+    <div>
+      <ion-title class="title">Add one of your Playlist</ion-title>
+      <button class="doneButton" ion-button color=dark item-end (click)='donePlaylist()'>Done!</button>
+    </div>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-content padding>
-    <div *ngIf="ownedPlaylists?.length>0">
-      <ion-list *ngFor="let playlist of ownedPlaylists">
+  <div *ngIf="ownedPlaylists?.length>0">
+    <ion-list *ngFor="let playlist of ownedPlaylists">
+      <div class='cardDiv'>
         <ion-card (click)="addAllTracks(playlist.id)">
           <img src="{{playlist.img}}"/>
-          <div class="cardTitle">{{playlist.name}}</div>
-          <div class="cardSubtitle">{{playlist.numTracks}} brani</div>
+          <ion-card-content>
+            <ion-card-title>
+              {{playlist.name}}
+            </ion-card-title>
+            <p>{{playlist.numTracks}} brani</p>
+          </ion-card-content>
         </ion-card>
-      </ion-list>
-    </div>
+      </div>
+    </ion-list>
+  </div>
 </ion-content>
