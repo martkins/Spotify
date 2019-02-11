@@ -1,5 +1,5 @@
 # Spotify
 
 
-tuma
+Spotify Playlist Manager
 
